@@ -8,5 +8,15 @@ export const userResolvers = {
                 }
             ]
         }
+    },
+    Mutation: {
+        register: (root, { input }, context, info) => {
+            console.log(input);
+            return {
+                id: 0,
+                ...input
+            }
+
+        }
     }
 }
