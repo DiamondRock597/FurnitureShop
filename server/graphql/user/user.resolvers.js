@@ -1,3 +1,5 @@
+import { userController } from "../../controllers/user-controller.js"
+
 export const userResolvers = {
     Query: {
         getAllUsers: () => {
@@ -10,13 +12,7 @@ export const userResolvers = {
         }
     },
     Mutation: {
-        register: (root, { input }, context, info) => {
-            console.log(input);
-            return {
-                id: 0,
-                ...input
-            }
-
-        }
+        register: async (root, { input }, context, info) => await userController.registration(input),
+        login: async (root, { input }, context, info) => await userController.login(input)
     }
 }
