@@ -6,11 +6,19 @@ The app is service for buying any furnitures as you wish.
 
 ## Tech stack
 
+### Client
+
 1. TypeScript
 2. React Native
-3. GraphQL
-4. ApolloClient
-5. React Navigation
+3. ApolloClient
+4. React Navigation
+5. React Hook Form
+
+### Backend
+
+1. Express
+2. GraphQL
+3. MongoDB
 
 ## Links
 

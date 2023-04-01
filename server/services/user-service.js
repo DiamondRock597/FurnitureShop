@@ -1,19 +1,21 @@
 import bcrypt from 'bcrypt';
+import { GraphQLError } from 'graphql';
+
 import { UserModel } from '../models/user-model.js';
 import { tokenService } from './token-service.js';
 import { UserDto } from '../dto/user-dto.js';
 
 //TODO: create error catcher
 class UserService {
-    register = async (email, password) => {
+    register = async (email, password, name) => {
         const candidate = await UserModel.findOne({ email });
 
         if (candidate) {
-            console.log('Already exist');
+            throw new GraphQLError('Already exist');
         }
 
         const hashPassword = await bcrypt.hash(password, 3);
-        const user = await UserModel.create({ email, password: hashPassword });
+        const user = await UserModel.create({ email, password: hashPassword,  name });
 
         const userDto = new UserDto(user);
         const accessToken = await tokenService.generateToken({ ...userDto });
@@ -25,19 +27,29 @@ class UserService {
         const user = await UserModel.findOne({ email });
 
         if (!user) {
-            console.log('Does not exist');
+            throw new GraphQLError('Does not exist');
         }
 
         const isPasswordEquals = await bcrypt.compare(password, user.password);
 
         if (!isPasswordEquals) {
-            console.log('Password is not right');
+            throw new GraphQLError('Password is not right');
         }
 
         const userDto = new UserDto(user);
         const accessToken = await tokenService.generateToken({ ...userDto });
 
         return { accessToken, user: userDto }
+    }
+
+    getName = async (id) => {
+        const user = await UserModel.findById(id);
+
+        if(!user) {
+            throw new GraphQLError('Does not exist');
+        }
+
+        return user.name;
     }
 }
 

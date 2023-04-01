@@ -55,6 +55,10 @@
 		<string>NunitoSans-Light.ttf</string>
 		<string>NunitoSans-Regular.ttf</string>
 		<string>NunitoSans-SemiBold.ttf</string>
+		<string>Gelasio-Regular.ttf</string>
+		<string>Gelasio-Bold.ttf</string>
+		<string>Gelasio-SemiBold.ttf</string>
+		<string>Gelasio-Medium.ttf</string>
 	</array>
 	<key>UIViewControllerBasedStatusBarAppearance</key>
 	<false/>

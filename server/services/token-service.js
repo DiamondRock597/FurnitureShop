@@ -11,7 +11,7 @@ class TokenService {
     }
 
     saveToken = async (userId, accessToken) => {
-        const tokenData = await TokenModel.findOne({ user: userId });
+        const tokenData = await this.findToken(userId);
 
         if (tokenData) {
             tokenData.accessToken = accessToken;
@@ -25,6 +25,8 @@ class TokenService {
 
         return token;
     }
+
+    findToken = async (userId) => await TokenModel.findOne({ user: userId });
 }
 
 export const tokenService = new TokenService();

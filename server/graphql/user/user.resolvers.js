@@ -2,17 +2,17 @@ import { userController } from "../../controllers/user-controller.js"
 
 export const userResolvers = {
     Query: {
-        getAllUsers: () => {
-            return [
-                {
-                    id: 0,
-                    username: 'Vasya'
-                }
-            ]
-        }
+        getName: async (root, req, context) => {
+            if (!context.isAuth) {
+                return '';
+            }
+
+            const name = await userController.findName(context.userId);
+            return { name };
+        },
+        login: (root, { input }) =>  userController.login(input)
     },
     Mutation: {
-        register: async (root, { input }, context, info) => await userController.registration(input),
-        login: async (root, { input }, context, info) => await userController.login(input)
+        createUser: (root, { input }) => userController.registration(input),
     }
 }

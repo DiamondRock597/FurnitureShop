@@ -4,10 +4,7 @@ export const userSchema = buildSchema(`
     type User {
         id: ID
         email: String
-    }
-
-    type Query {
-        getAllUsers: [User]
+        name: String
     }
 
     input AuthInput {
@@ -15,13 +12,27 @@ export const userSchema = buildSchema(`
         password: String!
     }
 
+    input RegisterInput {
+        email: String!
+        password: String!
+        name: String!
+    }
+
     type AuthResponse {
         user: User
         accessToken: String
     }
 
-    type Mutation {
-        register(input: AuthInput): AuthResponse
+    type Response {
+        name: String
+    }
+
+    type Query {
+        getName(thing: String): Response
         login(input: AuthInput): AuthResponse
+    }
+
+    type Mutation {
+        createUser(input: RegisterInput): AuthResponse
     }
 `);

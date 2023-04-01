@@ -5,6 +5,7 @@ import cors from 'cors';
 import mongoose from 'mongoose';
 
 import { schema } from './graphql/schema.js';
+import { authMiddleware } from './middlewares/auth-middleware.js';
 
 config();
 
@@ -13,10 +14,10 @@ const app = express();
 
 app.use(cors());
 app.use(express.json());
-
+app.use(authMiddleware);
 app.use('/graphql', graphqlHTTP({
     graphiql: true,
-    schema
+    schema,
 }));
 
 const start = async () => {

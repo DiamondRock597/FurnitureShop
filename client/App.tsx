@@ -1,13 +1,14 @@
-import {View, Text, SafeAreaView} from 'react-native';
 import React from 'react';
+import { NavigationContainer } from '@react-navigation/native';
+import { ApolloProvider } from '@apollo/client';
 
-const App = () => {
-  return (
-    <SafeAreaView
-      style={{flex: 1, justifyContent: 'center', alignItems: 'center'}}>
-      <Text style={{fontFamily: 'NunitoSans-Bold'}}>App TExt</Text>
-    </SafeAreaView>
-  );
-};
+import { AppNavigator } from '@navigation/AppNavigator';
+import { client } from '@graphql/client';
 
-export default App;
+export const App = () => (
+  <ApolloProvider client={client}>
+    <NavigationContainer>
+      <AppNavigator />
+    </NavigationContainer>
+  </ApolloProvider>
+);
