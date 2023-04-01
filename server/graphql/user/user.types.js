@@ -5,6 +5,7 @@ export const userSchema = buildSchema(`
         id: ID
         email: String
         name: String
+        avatar: String
     }
 
     input AuthInput {
@@ -29,10 +30,10 @@ export const userSchema = buildSchema(`
 
     type Query {
         getName(thing: String): Response
-        login(input: AuthInput): AuthResponse
     }
 
     type Mutation {
         createUser(input: RegisterInput): AuthResponse
+        login(input: AuthInput): AuthResponse
     }
 `);

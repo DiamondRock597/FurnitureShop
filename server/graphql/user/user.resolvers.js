@@ -10,9 +10,9 @@ export const userResolvers = {
             const name = await userController.findName(context.userId);
             return { name };
         },
-        login: (root, { input }) =>  userController.login(input)
     },
     Mutation: {
         createUser: (root, { input }) => userController.registration(input),
+        login: (root, { input }) => userController.login(input)
     }
 }
