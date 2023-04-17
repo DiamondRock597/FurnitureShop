@@ -1,6 +1,6 @@
 import { buildSchema } from "graphql";
 
-export const userSchema = buildSchema(`
+export const userSchema = buildSchema(`#graphql
     type User {
         id: ID
         email: String
@@ -22,14 +22,6 @@ export const userSchema = buildSchema(`
     type AuthResponse {
         user: User
         accessToken: String
-    }
-
-    type Response {
-        name: String
-    }
-
-    type Query {
-        getName(thing: String): Response
     }
 
     type Mutation {

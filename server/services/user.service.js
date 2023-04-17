@@ -2,7 +2,7 @@ import bcrypt from 'bcrypt';
 import { GraphQLError } from 'graphql';
 
 import { UserModel } from '../models/user-model.js';
-import { tokenService } from './token-service.js';
+import { tokenService } from './token.service.js';
 import { UserDto } from '../dto/user-dto.js';
 
 //TODO: create error catcher
@@ -15,7 +15,7 @@ class UserService {
         }
 
         const hashPassword = await bcrypt.hash(password, 3);
-        const user = await UserModel.create({ email, password: hashPassword,  name });
+        const user = await UserModel.create({ email, password: hashPassword, name });
 
         const userDto = new UserDto(user);
         const accessToken = await tokenService.generateToken({ ...userDto });
@@ -45,7 +45,7 @@ class UserService {
     getName = async (id) => {
         const user = await UserModel.findById(id);
 
-        if(!user) {
+        if (!user) {
             throw new GraphQLError('Does not exist');
         }
 

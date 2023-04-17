@@ -1,18 +1,22 @@
-import { userController } from "../../controllers/user-controller.js"
+import { userService } from "../../services/user.service.js";
 
 export const userResolvers = {
-    Query: {
-        getName: async (root, req, context) => {
-            if (!context.isAuth) {
-                return '';
-            }
-
-            const name = await userController.findName(context.userId);
-            return { name };
-        },
-    },
     Mutation: {
-        createUser: (root, { input }) => userController.registration(input),
-        login: (root, { input }) => userController.login(input)
+        createUser: async (root, { input }) => {
+            try {
+                const { email, password, name } = input;
+                return await userService.register(email, password, name);
+            } catch (error) {
+                return error;
+            }
+        },
+        login: async (root, { input }) => {
+            try {
+                const { email, password } = input;
+                return await userService.login(email, password);
+            } catch (error) {
+                return error;
+            }
+        }
     }
 }
