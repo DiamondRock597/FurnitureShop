@@ -1,30 +1,42 @@
 import { GraphQLError } from "graphql";
 
-import { shippingController } from "../../controllers/shipping-address.controller.js";
+import { shippingAddressService } from "../../services/shipping-address.service.js";
 
 export const shippingAddressResolver = {
     Query: {
-        getShippingAddresses: async (root, args, context) => {
-            if (!context.isAuth) {
-                throw new GraphQLError('User is not authinticated');
-            }
+        getShippingAddresses: async (root, { input }, { userId, isAuth }) => {
+            try {
+                if (!isAuth) {
+                    throw new GraphQLError('User is not authinticated');
+                }
 
-            return shippingController.getAddresses();
+                return shippingAddressService.getList(userId)
+            } catch (error) {
+                return error;
+            }
         },
-        getShippingAddress: async (root, { input }, context) => {
-            if (!context.isAuth) {
-                throw new GraphQLError('User is not authinticated');
-            }
-
-
-        }
     },
     Mutation: {
-        setActiveAddress: (root, { input }) => {
-
+        togleAddress: (root, { input }, { isAuth }) => {
+            try {
+                if (!isAuth) {
+                    throw new GraphQLError('User is not authinticated');
+                }
+                return shippingAddressService.setActiveAddress(input);
+            } catch (error) {
+                return error;
+            }
         },
-        createShippingAddress: (root, { input }) => {
+        createShippingAddress: async (root, { input }, { userId, isAuth }) => {
+            try {
+                if (!isAuth) {
+                    throw new GraphQLError('User is not authinticated');
+                }
 
+                return shippingAddressService.createAddress(userId, input)
+            } catch (error) {
+                return error;
+            }
         }
     }
 }

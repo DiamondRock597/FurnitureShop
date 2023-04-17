@@ -26,7 +26,7 @@ export const shippingAddressSchema = buildSchema(`#graphql
     }
 
     type Mutation {
-        setActiveAddress(input: ID): ID
+        togleAddress(input: ID): ShippingAddress
         createShippingAddress(input: ShippingAddressInput): ShippingAddress
     }
 `);

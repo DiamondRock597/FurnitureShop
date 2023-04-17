@@ -7,7 +7,7 @@ import { shippingAddressResolver, shippingAddressSchema } from './shipping-addre
 export const schema = makeExecutableSchema({
     typeDefs: [
         userSchema,
-        shippingAddressSchema
+        shippingAddressSchema,
     ],
-    resolvers: mergeResolvers([shippingAddressResolver, userResolvers])
+    resolvers: mergeResolvers([userResolvers, shippingAddressResolver])
 })

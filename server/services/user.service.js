@@ -42,14 +42,14 @@ class UserService {
         return { accessToken, user: userDto }
     }
 
-    getName = async (id) => {
+    getUser = async (id) => {
         const user = await UserModel.findById(id);
 
         if (!user) {
             throw new GraphQLError('Does not exist');
         }
 
-        return user.name;
+        return user;
     }
 }
 

@@ -5,7 +5,6 @@ export const userSchema = buildSchema(`#graphql
         id: ID
         email: String
         name: String
-        avatar: String
     }
 
     input AuthInput {
@@ -22,6 +21,10 @@ export const userSchema = buildSchema(`#graphql
     type AuthResponse {
         user: User
         accessToken: String
+    }
+
+    type Query {
+        getProfile: User!
     }
 
     type Mutation {

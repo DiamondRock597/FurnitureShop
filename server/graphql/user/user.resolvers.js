@@ -1,6 +1,21 @@
+import { GraphQLError } from "graphql";
+
 import { userService } from "../../services/user.service.js";
 
 export const userResolvers = {
+    Query: {
+        getProfile: async (root, args, { isAuth, userId }) => {
+            try {
+                if (!isAuth) {
+                    throw new GraphQLError('User is not authinticated');
+                }
+
+                return userService.getUser(userId);
+            } catch (error) {
+                return error;
+            }
+        }
+    },
     Mutation: {
         createUser: async (root, { input }) => {
             try {
