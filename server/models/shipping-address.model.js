@@ -6,7 +6,8 @@ const ShippingAddress = new mongoose.Schema({
     name: { type: String, required: true },
     country: { type: String, required: true },
     isActive: { type: Boolean, required: true, default: false },
-    city: { type: String, required: true }
+    city: { type: String, required: true },
+    userId: { type: mongoose.Schema.Types.ObjectId, ref: 'User' }
 });
 
 export const ShippingAddressModel = mongoose.model('Shipping-Address', ShippingAddress);

@@ -1,31 +1,22 @@
 import { GraphQLError } from 'graphql';
 
 import { ShippingAddressModel } from '../models/shipping-address.model.js';
-import { UserModel } from "../models/user-model.js";
 
 class ShippingAddressService {
     getList = async (userId) => {
-        const user = await UserModel.findById(userId);
-
-        if (!user) {
+        if (!userId) {
             throw new GraphQLError('Does not exist');
         }
 
-        return user.shippingAddresses;
+        return ShippingAddressModel.find({ userId });
     }
 
     createAddress = async (userId, input) => {
-        const user = await UserModel.findById(userId);
-
-        if (!user) {
+        if (!userId) {
             throw new GraphQLError('Does not exist');
         }
 
-        const shippingAddress = await ShippingAddressModel.create(input);
-
-        user.shippingAddresses = [...user.shippingAddresses, shippingAddress];
-        await user.save();
-        return shippingAddress;
+        return ShippingAddressModel.create({ ...input, userId });
     }
 
     setActiveAddress = (addressId) => ShippingAddressModel.findByIdAndUpdate(addressId, { isActive: true });
