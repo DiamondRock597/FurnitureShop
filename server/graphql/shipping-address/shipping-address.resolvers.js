@@ -4,7 +4,7 @@ import { shippingAddressService } from "../../services/shipping-address.service.
 
 export const shippingAddressResolver = {
     Query: {
-        getShippingAddresses: async (root, { input }, { userId, isAuth }) => {
+        getShippingAddresses: (root, args, { userId, isAuth }) => {
             try {
                 if (!isAuth) {
                     throw new GraphQLError('User is not authinticated');
@@ -27,7 +27,7 @@ export const shippingAddressResolver = {
                 return error;
             }
         },
-        createShippingAddress: async (root, { input }, { userId, isAuth }) => {
+        createShippingAddress: (root, { input }, { userId, isAuth }) => {
             try {
                 if (!isAuth) {
                     throw new GraphQLError('User is not authinticated');
