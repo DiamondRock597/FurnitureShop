@@ -4,6 +4,7 @@ export const paymentSchema = buildSchema(`#graphql
         holderName: String!
         address: String!
         cardNumber: String!
+        isActive: Boolean!
         cvv: String!
     }
 
@@ -18,7 +19,7 @@ export const paymentSchema = buildSchema(`#graphql
     }
 
     type Mutation {
-        toglePayment: (id: ID) Payment
+        togglePayment: (id: ID) Payment
         createPaymentMethod(input: PaymentInput): Payment
     }
 `);

@@ -16,6 +16,8 @@ class PaymentService {
 
         return PaymentModel.create({ userId, input });
     }
+
+    togglePayment = (paymentId) => PaymentModel.findByIdAndUpdate(paymentId, { isActive: true });
 }
 
 export const paymentService = new PaymentService();
