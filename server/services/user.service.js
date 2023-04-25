@@ -1,7 +1,7 @@
 import bcrypt from 'bcrypt';
 import { GraphQLError } from 'graphql';
 
-import { UserModel } from '../models/user-model.js';
+import { UserModel } from '../models/user.model.js';
 import { tokenService } from './token.service.js';
 import { UserDto } from '../dto/user-dto.js';
 
