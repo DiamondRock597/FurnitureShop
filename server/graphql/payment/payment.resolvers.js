@@ -1,39 +1,38 @@
 import { GraphQLError } from "graphql";
 
-import { shippingAddressService } from "../../services/shipping-address.service.js";
+import { paymentService } from "../../services/payment.service";
 
-export const shippingAddressResolver = {
+export const paymentResolver = {
     Query: {
-        getShippingAddresses: (root, args, { userId, isAuth }) => {
+        getPayments: async (root, args, { userId, isAuth }) => {
             try {
                 if (!isAuth) {
                     throw new GraphQLError('User is not authinticated');
                 }
 
-                return shippingAddressService.getList(userId)
+                return paymentService.getList(userId);
             } catch (error) {
                 return error;
             }
-        },
+        }
     },
     Mutation: {
-        togleAddress: (root, { input }, { isAuth }) => {
+        createPaymentMethod: async (root, { input }, { userId, isAuth }) => {
             try {
                 if (!isAuth) {
                     throw new GraphQLError('User is not authinticated');
                 }
-                return shippingAddressService.setActiveAddress(input);
+                return paymentService.createPaymentMethod(userId, input);
             } catch (error) {
                 return error;
             }
         },
-        createShippingAddress: (root, { input }, { userId, isAuth }) => {
+        togglePayment: async (root, { input }, { isAuth }) => {
             try {
                 if (!isAuth) {
                     throw new GraphQLError('User is not authinticated');
                 }
-
-                return shippingAddressService.createAddress(userId, input)
+                return paymentService.togglePayment(input)
             } catch (error) {
                 return error;
             }
