@@ -1,0 +1,1 @@
+export { favouriteSchema } from './favourite.types.js'
