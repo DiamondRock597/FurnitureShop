@@ -1,8 +1,10 @@
+import { buildSchema } from "graphql";
+
 export const furnitureSchema = buildSchema(`#graphql
     type Furniture {
         id: ID!
         name: String!
-        cost: Number!
+        cost: Int!
         description: String!
         image: String!
     }

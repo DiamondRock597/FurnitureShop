@@ -1,6 +1,6 @@
 import { GraphQLError } from "graphql";
 
-import { furnitureService } from "../../services/furniture.service";
+import { furnitureService } from "../../services/furniture.service.js";
 
 export const furnitureResolovers = {
     Query: {

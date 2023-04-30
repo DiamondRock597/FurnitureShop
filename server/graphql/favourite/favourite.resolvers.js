@@ -1,15 +1,15 @@
 import { GraphQLError } from "graphql";
 
-import { favouriteService } from "../../services/favourite.service";
+import { favouriteService } from "../../services/favourite.service.js";
 
-export const favoriteResolvers = {
+export const favouriteResolvers = {
     Query: {
-        getFavorites: async (root, args, { isAuth }) => {
+        getFavorites: async (root, args, { isAuth, userId }) => {
             try {
                 if (!isAuth) {
                     throw new GraphQLError('User is not authinticated');
                 }
-                return favouriteService.getList();
+                return favouriteService.getList(userId);
             } catch (error) {
                 return error;
             }

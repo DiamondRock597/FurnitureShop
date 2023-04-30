@@ -1,6 +1,6 @@
 import { GraphQLError } from "graphql";
 
-import { paymentService } from "../../services/payment.service";
+import { paymentService } from "../../services/payment.service.js";
 
 export const paymentResolver = {
     Query: {

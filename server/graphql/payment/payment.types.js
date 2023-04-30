@@ -1,3 +1,5 @@
+import { buildSchema } from "graphql";
+
 export const paymentSchema = buildSchema(`#graphql
     type Payment {
         id: ID!
@@ -19,7 +21,7 @@ export const paymentSchema = buildSchema(`#graphql
     }
 
     type Mutation {
-        togglePayment: (id: ID) Payment
+        togglePayment(id: ID): Payment
         createPaymentMethod(input: PaymentInput): Payment
     }
 `);

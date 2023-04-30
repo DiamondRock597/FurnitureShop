@@ -1,9 +1,11 @@
+import { buildSchema } from "graphql";
+
 export const favouriteSchema = buildSchema(`#graphql
     type Favourite {
         id: ID!
         furnitureName: String!
         furnitureImage: String!
-        furnitureCost: Number!
+        furnitureCost: Int!
     }
 
     type Query {
