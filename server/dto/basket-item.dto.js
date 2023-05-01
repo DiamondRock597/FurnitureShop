@@ -8,7 +8,6 @@ export class BasketItemDto {
     static parse = (model) => new BasketItemDto(model);
 
     constructor(model) {
-        console.log({ model });
         this.id = model._id;
         this.productName = model.furniture.name;
         this.productCost = model.furniture.cost;

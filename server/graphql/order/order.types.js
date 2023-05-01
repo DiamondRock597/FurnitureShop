@@ -14,6 +14,6 @@ export const orderSchema = buildSchema(`#graphql
     }
 
     type Mutation {
-        createOrder(paymentId: ID, shippingAddress: ID): Order
+        createOrder(paymentId: ID, shippingAddressId: ID): Order
     }
 `);
