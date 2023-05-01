@@ -3,7 +3,7 @@ import { GraphQLError } from 'graphql';
 
 import { UserModel } from '../models/user.model.js';
 import { tokenService } from './token.service.js';
-import { UserDto } from '../dto/user-dto.js';
+import { UserDto } from '../dto/user.dto.js';
 
 //TODO: create error catcher
 class UserService {

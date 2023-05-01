@@ -1,6 +1,6 @@
 export class UserDto {
-    email;
     id;
+    email;
     name;
 
     constructor(model) {

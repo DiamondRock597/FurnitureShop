@@ -1,3 +1,4 @@
+import { PaymentDto } from '../dto/payment.dto.js';
 import { PaymentModel } from '../models/payment.model.js';
 
 class PaymentService {
@@ -5,16 +6,17 @@ class PaymentService {
         if (!userId) {
             throw new GraphQLError('Does not exist');
         }
-
-        return PaymentModel.find({ userId });
+        const paymentList = await PaymentModel.find({ userId });
+        return paymentList.map(PaymentDto.parse);
     }
 
-    createPaymentMethod = (userId, input) => {
+    createPaymentMethod = async (userId, input) => {
         if (!userId) {
             throw new GraphQLError('Does not exist');
         }
 
-        return PaymentModel.create({ userId, input });
+        const payment = await PaymentModel.create({ userId, ...input });
+        return PaymentDto.parse(payment);
     }
 
     togglePayment = (paymentId) => PaymentModel.findByIdAndUpdate(paymentId, { isActive: true });

@@ -2,10 +2,11 @@ import { buildSchema } from "graphql";
 
 export const basketSchema = buildSchema(`#graphql
     type BasketItem {
-       name: String!
+       id:ID!
+       productName: String!
        quantity: Int!
-       cost: Int!
-       description: String!
+       productCost: Int!
+       productDescription: String!
     }
 
     type Query {
@@ -13,7 +14,7 @@ export const basketSchema = buildSchema(`#graphql
     }
 
     type Mutation {
-        addToBasket(furnitureId: ID, quantity: Int): ID
+        addToBasket(furnitureId: ID!, quantity: Int): BasketItem
         incrementBasketItem(basketItemId: ID): ID
         decrementBasketItem(basketItemId: ID): ID
         deleteBasketItem(basketItemId: ID): ID

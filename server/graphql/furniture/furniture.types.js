@@ -6,7 +6,6 @@ export const furnitureSchema = buildSchema(`#graphql
         name: String!
         cost: Int!
         description: String!
-        image: String!
     }
 
     type Query {

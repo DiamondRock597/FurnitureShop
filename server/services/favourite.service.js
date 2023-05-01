@@ -1,6 +1,7 @@
 import { GraphQLError } from "graphql";
 
 import { FavouriteModel } from '../models/favourite.model.js';
+import { FavouriteDto } from "../dto/favourite.dto.js";
 
 class FavouriteService {
     getList = async (userId) => {
@@ -8,15 +9,16 @@ class FavouriteService {
             throw new GraphQLError('Does not exist');
         }
 
-        return FavouriteModel.find({ userId }).sort('-createdAt').populate('furniture').exec();
+        const favorites = await FavouriteModel.find({ userId }).sort('-createdAt').populate('furniture').exec()
+        return favorites.map(FavouriteDto.parse);
     }
 
     markFavourite = async (userId, furnitureId) => {
         if (!userId) {
             throw new GraphQLError('Does not exist');
         }
-
-        return FavouriteModel.create({ userId, furnitureId });
+        const favourite = await FavouriteModel.create({ userId, furnitureId });
+        return FavouriteDto.parse(favourite);
     }
 
     unmarkFavourite = async (favouriteId) => {
@@ -24,7 +26,8 @@ class FavouriteService {
             throw new GraphQLError('Favourite was not found');
         }
 
-        return FavouriteModel.findByIdAndDelete(favouriteId);
+        const deleteFavourite = await FavouriteModel.findByIdAndDelete(favouriteId);
+        return FavouriteDto.parse(deleteFavourite);
     }
 }
 

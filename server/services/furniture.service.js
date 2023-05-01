@@ -1,9 +1,18 @@
+import { FurnitureDto } from '../dto/furniture.dto.js';
 import { FurnitureModel } from '../models/furniture.model.js';
 
 class FurnitureService {
-    getList = () => FurnitureModel.find()
+    getList = async () => {
+        const products = await FurnitureModel.find();
 
-    getFurniture = (id) => FurnitureModel.findById(id);
+        return products.map(FurnitureDto.parse);
+    }
+
+    getFurniture = async (id) => {
+        const product = await FurnitureModel.findById(id);
+
+        return FurnitureDto.parse(product);
+    };
 }
 
 export const furnitureService = new FurnitureService();

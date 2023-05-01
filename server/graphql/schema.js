@@ -6,7 +6,8 @@ import { shippingAddressResolver, shippingAddressSchema } from './shipping-addre
 import { paymentResolver, paymentSchema } from './payment/index.js';
 import { furnitureResolovers, furnitureSchema } from './furniture/index.js';
 import { favouriteSchema, favouriteResolvers } from './favourite/index.js';
-import { basketSchema, basketResolvers } from './basket/index.js'
+import { basketSchema, basketResolvers } from './basket/index.js';
+import { orderResolvers, orderSchema } from './order/index.js'
 
 export const schema = makeExecutableSchema({
     typeDefs: [
@@ -16,6 +17,7 @@ export const schema = makeExecutableSchema({
         furnitureSchema,
         favouriteSchema,
         basketSchema,
+        orderSchema
     ],
     resolvers: mergeResolvers([
         userResolvers,
@@ -23,6 +25,7 @@ export const schema = makeExecutableSchema({
         paymentResolver,
         furnitureResolovers,
         favouriteResolvers,
-        basketResolvers
+        basketResolvers,
+        orderResolvers
     ])
 })
