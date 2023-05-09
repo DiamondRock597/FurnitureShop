@@ -1,17 +1,25 @@
 import React from 'react';
-import { useLazyQuery } from '@apollo/client';
-import { View, Text } from 'react-native';
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 
-import { GET_NAME } from '@graphql/user/queries';
-import { Button } from '@components/button';
+import { HomeScreen } from '@features/home/home_screen';
+import { MainStackParamList, Routes } from './routes';
+import { TabIcon } from 'components/tab_icon';
+import { RouteProp } from '@react-navigation/native';
+import { Colors } from 'constants/colors';
 
-export const MainNavigator = () => {
-  const [getName, { data }] = useLazyQuery(GET_NAME);
+const BottomTab = createBottomTabNavigator();
 
-  return (
-    <View>
-      <Text>{data && data.getName.name}</Text>
-      <Button text="Press me" onPress={getName} />
-    </View>
-  );
-};
+const screenOptions = ({ route }: { route: RouteProp<MainStackParamList, Routes.TabNavigator> }) => ({
+  headerShown: false,
+  tabBarIcon: ({ color }) => <TabIcon name={route.name} color={color} />,
+  tabBarShowLabel: false,
+  tabBarActiveTintColor: Colors.SecondaryBlackBold,
+  tabBarInactiveTintColor: Colors.SecondaryGreyLight,
+});
+
+export const TabNavigator = () => (
+  <BottomTab.Navigator screenOptions={screenOptions}>
+    <BottomTab.Screen name={Routes.Home} component={HomeScreen} />
+    <BottomTab.Screen name={Routes.Favorites} component={HomeScreen} />
+  </BottomTab.Navigator>
+);

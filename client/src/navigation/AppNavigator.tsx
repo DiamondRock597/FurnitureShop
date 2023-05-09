@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
-import { Onboarding } from '@features/onboarding';
+import { Onboarding } from 'features/auth/onboarding';
 import { AuthScreen } from '@features/auth/auth_screen';
 import { tokenService } from '@services/TokenService';
-import { MainNavigator } from './MainNavigator';
+import { MainNavigator, TabNavigator } from './MainNavigator';
 import { Routes } from './routes';
 
 const Stack = createNativeStackNavigator();
@@ -25,11 +25,11 @@ export const AppNavigator = () => {
       screenOptions={{
         headerShown: false,
       }}
-      initialRouteName={token ? Routes.TabNavigator : Routes.Onboarding}
+      // initialRouteName={token ? Routes.TabNavigator : Routes.Onboarding}
     >
-      <Stack.Screen component={Onboarding} name={Routes.Onboarding} />
-      <Stack.Screen component={MainNavigator} name={Routes.TabNavigator} />
-      <Stack.Screen component={AuthScreen} name={Routes.Auth} />
+      {/* <Stack.Screen component={Onboarding} name={Routes.Onboarding} /> */}
+      <Stack.Screen component={TabNavigator} name={Routes.TabNavigator} />
+      {/* <Stack.Screen component={AuthScreen} name={Routes.Auth} /> */}
     </Stack.Navigator>
   );
 };
