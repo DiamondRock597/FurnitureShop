@@ -15,6 +15,17 @@ export const shippingAddressResolver = {
                 return error;
             }
         },
+        addressesCount: (root, args, { userId, isAuth }) => {
+            try {
+                if (!isAuth) {
+                    throw new GraphQLError('User is not authinticated');
+                }
+
+                return shippingAddressService.getCount(userId)
+            } catch (error) {
+                return error;
+            }
+        },
     },
     Mutation: {
         togleAddress: (root, { input }, { isAuth }) => {

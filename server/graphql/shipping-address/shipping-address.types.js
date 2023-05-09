@@ -11,13 +11,9 @@ export const shippingAddressSchema = buildSchema(`#graphql
         city: String!
     }
 
-    type AddressesResponse {
-        list: [ShippingAddress]
-        amount: Int
-    }
-
     type Query {
-        shippingAddresses: AddressesResponse
+        shippingAddresses: [ShippingAddress]
+        addressesCount: Int
         getShippingAddress(input: ID): ShippingAddress
     }
 
