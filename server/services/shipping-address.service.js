@@ -9,8 +9,8 @@ class ShippingAddressService {
             throw new GraphQLError('Does not exist');
         }
         const addresses = await ShippingAddressModel.find({ userId });
-
-        return addresses.map(ShippingAddressDto.parse);
+        const list = addresses.map(ShippingAddressDto.parse);
+        return { amount: list.length, list  };
     }
 
     createAddress = async (userId, input) => {

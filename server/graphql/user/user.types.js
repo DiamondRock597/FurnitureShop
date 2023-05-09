@@ -24,7 +24,7 @@ export const userSchema = buildSchema(`#graphql
     }
 
     type Query {
-        getProfile: User!
+        profile: User!
     }
 
     type Mutation {

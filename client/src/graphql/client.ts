@@ -1,11 +1,11 @@
 import { ApolloClient, HttpLink, InMemoryCache } from '@apollo/client';
 import { setContext } from '@apollo/client/link/context';
 
-import { tokenService } from '@services/TokenService';
-import { GRAPHQL_URL } from '@configs/urls';
+import { tokenRepository } from 'repositories/TokenRepository';
+import { GRAPHQL_URL } from 'constants/urls';
 
 const authLink = setContext(async (_, { headers }) => {
-  const token = await tokenService.loadToken();
+  const token = await tokenRepository.loadToken();
   return {
     headers: {
       ...headers,

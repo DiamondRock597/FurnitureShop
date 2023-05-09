@@ -4,10 +4,17 @@ export enum Routes {
   Onboarding = 'Onboarding',
   Home = 'Home',
   Favorites = 'Favorites',
+  Profile = 'Profile',
+  ShippingAddress = 'ShippingAddress',
 }
 
-export type MainStackParamList = {
+export type AppStackParamList = {
   [Routes.Auth]: undefined;
   [Routes.TabNavigator]: undefined;
   [Routes.Onboarding]: undefined;
+};
+
+export type MainTabParamList = {
+  [Routes.Profile]: undefined;
+  [Routes.Home]: undefined;
 };

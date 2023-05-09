@@ -12,6 +12,7 @@ interface Props {
 const bottomTabsIcon = {
   [Routes.Home]: require('@assets/images/tabs/home_tab.png'),
   [Routes.Favorites]: require('@assets/images/tabs/favorites_tab.png'),
+  [Routes.Profile]: require('@assets/images/tabs/profile_tab.png'),
 };
 
 export const TabIcon: React.FC<Props> = React.memo(({ name, color }: Props) => {

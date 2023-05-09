@@ -7,7 +7,7 @@ import { NavigationProp, useNavigation } from '@react-navigation/native';
 import { LOGIN } from '@graphql/user/queries';
 import { LoginPayload } from '@models/user/login_payload';
 import { AuthResponse } from '@models/user/auth_response';
-import { tokenService } from '@services/TokenService';
+import { tokenRepository } from 'repositories/TokenRepository';
 import { MainStackParamList, Routes } from '@navigation/routes';
 
 export enum FormValues {
@@ -46,7 +46,7 @@ export const useSignIn: () => UseSignInReturn = () => {
     }
 
     if (userData) {
-      tokenService.saveToken(userData.accessToken);
+      tokenRepository.saveToken(userData.accessToken);
       navigate(Routes.TabNavigator);
     }
   }, [loginData, navigate]);

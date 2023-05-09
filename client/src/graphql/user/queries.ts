@@ -1,9 +1,10 @@
 import { gql } from '@apollo/client';
 
-export const GET_NAME = gql`
-  query GetName {
-    getName(thing: "thing") {
+export const GET_PROFILE = gql`
+  query GetProfile {
+    profile {
       name
+      email
     }
   }
 `;

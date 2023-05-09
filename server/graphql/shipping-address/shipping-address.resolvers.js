@@ -4,7 +4,7 @@ import { shippingAddressService } from "../../services/shipping-address.service.
 
 export const shippingAddressResolver = {
     Query: {
-        getShippingAddresses: (root, args, { userId, isAuth }) => {
+        shippingAddresses: (root, args, { userId, isAuth }) => {
             try {
                 if (!isAuth) {
                     throw new GraphQLError('User is not authinticated');

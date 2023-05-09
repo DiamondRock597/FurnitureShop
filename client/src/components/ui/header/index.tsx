@@ -1,19 +1,21 @@
 import React from 'react';
-import { View, Image, Text, TouchableOpacity } from 'react-native';
+import { Text, TouchableOpacity, Image } from 'react-native';
+import { SafeAreaView } from 'react-native-safe-area-context';
 
-import { style } from './style';
+import { styles } from './styles';
 
-export const Header = React.memo(() => (
-  <View style={style.container}>
+interface Props {
+  isProfile?: boolean;
+}
+
+export const Header: React.FC<Props> = ({ isProfile }) => (
+  <SafeAreaView style={styles.container}>
     <TouchableOpacity>
-      <Image style={style.icon} source={require('@assets/images/search_icon.png')} />
+      <Image style={styles.icon} source={require('@assets/images/search_icon.png')} />
     </TouchableOpacity>
-    <View style={style.titleContainer}>
-      <Text style={style.title}>Make home</Text>
-      <Text style={style.subTitle}>Beautiful</Text>
-    </View>
+    <Text style={styles.title}>Profile</Text>
     <TouchableOpacity>
-      <Image style={style.icon} source={require('@assets/images/backet.png')} />
+      <Image style={styles.icon} source={isProfile ? require('@assets/images/logout.png') : require('@assets/images/basket.png')} />
     </TouchableOpacity>
-  </View>
-));
+  </SafeAreaView>
+);

@@ -6,7 +6,7 @@ import { NavigationProp, useNavigation } from '@react-navigation/native';
 
 import { REGISTER } from '@graphql/user/mutations';
 import { MainStackParamList, Routes } from '@navigation/routes';
-import { tokenService } from '@services/TokenService';
+import { tokenRepository } from 'repositories/TokenRepository';
 import { RegisterPayload } from '@models/user/register_payload';
 import { AuthResponse } from '@models/user/auth_response';
 
@@ -51,7 +51,7 @@ export const useSignUp: () => UseSignUpReturn = () => {
     }
 
     if (userData) {
-      tokenService.saveToken(userData.accessToken);
+      tokenRepository.saveToken(userData.accessToken);
       navigate(Routes.TabNavigator);
     }
   }, [registerData, navigate]);
@@ -71,7 +71,7 @@ export const useSignUp: () => UseSignUpReturn = () => {
 
       onRegister({ variables: { input } });
     },
-    [onRegister],
+    [onRegister, setError]
   );
 
   const onSubmit = useCallback(() => handleSubmit<FormValues>(handleRegister)(), [handleRegister, handleSubmit]);
@@ -81,6 +81,6 @@ export const useSignUp: () => UseSignUpReturn = () => {
       onSubmit,
       control,
     }),
-    [onSubmit, control],
+    [onSubmit, control]
   );
 };
