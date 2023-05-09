@@ -10,7 +10,7 @@ export const orderResolvers = {
                     throw new GraphQLError('User is not authinticated');
                 }
 
-                return orderService.getList();
+                return orderService.getList(userId);
             } catch (error) {
                 return error;
             }
