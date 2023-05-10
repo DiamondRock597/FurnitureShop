@@ -1,10 +1,11 @@
 import { StyleSheet } from 'react-native';
-import { Colors } from 'react-native/Libraries/NewAppScreen';
+
+import { Colors } from 'constants/colors';
 
 export const style = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: Colors.Background,
+    backgroundColor: Colors.Primary,
     paddingHorizontal: 20,
   },
 });

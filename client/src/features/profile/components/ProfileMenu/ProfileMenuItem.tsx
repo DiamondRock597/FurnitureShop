@@ -6,10 +6,11 @@ import { styles } from './styles';
 interface Props {
   title: string;
   subtitle: string;
+  onPress: () => void;
 }
 
-export const ProfileMenuItem: React.FC<Props> = ({ title, subtitle }) => (
-  <TouchableOpacity style={styles.container}>
+export const ProfileMenuItem: React.FC<Props> = ({ title, subtitle, onPress }) => (
+  <TouchableOpacity style={styles.container} onPress={onPress}>
     <View style={styles.titleContainer}>
       <Text style={styles.title}>{title}</Text>
       <Text style={styles.subtitle}>{subtitle}</Text>

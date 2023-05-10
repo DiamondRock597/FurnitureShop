@@ -12,6 +12,7 @@ export type AppStackParamList = {
   [Routes.Auth]: undefined;
   [Routes.TabNavigator]: undefined;
   [Routes.Onboarding]: undefined;
+  [Routes.ShippingAddress]: undefined;
 };
 
 export type MainTabParamList = {

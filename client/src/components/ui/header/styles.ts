@@ -1,6 +1,7 @@
 import { StyleSheet } from 'react-native';
 
 import { Fonts } from 'constants/fonts';
+// import { Colors } from 'react-native/Libraries/NewAppScreen';
 import { Colors } from 'constants/colors';
 
 const ICON_SIZE = 20;
@@ -13,6 +14,7 @@ export const styles = StyleSheet.create({
     paddingTop: 20,
     paddingHorizontal: 20,
     alignItems: 'center',
+    backgroundColor: Colors.Primary,
   },
   title: {
     fontFamily: Fonts.GelasioSemiBold,
