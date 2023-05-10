@@ -6,6 +6,7 @@ export enum Routes {
   Favorites = 'Favorites',
   Profile = 'Profile',
   ShippingAddress = 'ShippingAddress',
+  AddShippingAddress = 'AddShippingAddress',
 }
 
 export type AppStackParamList = {
@@ -13,6 +14,7 @@ export type AppStackParamList = {
   [Routes.TabNavigator]: undefined;
   [Routes.Onboarding]: undefined;
   [Routes.ShippingAddress]: undefined;
+  [Routes.AddShippingAddress]: undefined;
 };
 
 export type MainTabParamList = {

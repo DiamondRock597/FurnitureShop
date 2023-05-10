@@ -8,7 +8,7 @@ import { LOGIN } from '@graphql/user/queries';
 import { LoginPayload } from '@models/user/login_payload';
 import { AuthResponse } from '@models/user/auth_response';
 import { tokenRepository } from 'repositories/TokenRepository';
-import { MainStackParamList, Routes } from '@navigation/routes';
+import { MainTabParamList, Routes } from '@navigation/routes';
 
 export enum FormValues {
   Email = 'email',
@@ -27,7 +27,7 @@ export interface UseSignInReturn {
 
 export const useSignIn: () => UseSignInReturn = () => {
   const [login, loginData] = useLazyQuery<{ login: AuthResponse }, { input: LoginPayload }>(LOGIN);
-  const { navigate }: NavigationProp<MainStackParamList> = useNavigation();
+  const { navigate }: NavigationProp<MainTabParamList> = useNavigation();
 
   const { control, handleSubmit }: UseFormReturn<FormTypes> = useForm<FormTypes>({
     defaultValues: {

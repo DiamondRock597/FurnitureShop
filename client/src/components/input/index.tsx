@@ -1,19 +1,19 @@
-import React from 'react';
+import React, { useMemo } from 'react';
 import { View, Text, TextInput, TextInputProps } from 'react-native';
 
-import { styles } from './style';
+import { styles } from './styles';
 
 interface Props extends TextInputProps {
-  name: string;
-  error?: string;
+  title: string;
+  error?: boolean;
 }
 
-export const Input: React.FC<Props> = ({ name, style, error, ...props }: Props) => (
-  <View style={styles.container}>
-    <View style={[!error && styles.inputContainer]}>
-      <Text style={styles.name}>{name}</Text>
-      <TextInput style={[styles.input, style]} {...props} />
+export const Input: React.FC<Props> = ({ title, error, ...props }) => {
+  const containerStyles = useMemo(() => [styles.container, error && { borderColor: 'red' }], [error]);
+  return (
+    <View style={containerStyles}>
+      <Text style={styles.title}>{title}</Text>
+      <TextInput style={styles.text} {...props} />
     </View>
-    <Text style={styles.error}>{error}</Text>
-  </View>
-);
+  );
+};
