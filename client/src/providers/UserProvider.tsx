@@ -2,10 +2,10 @@ import React, { createContext, ReactElement, useMemo } from 'react';
 import { useQuery } from '@apollo/client';
 
 import { User } from 'models/user/user';
-import { GET_PROFILE } from 'graphql/user/queries';
+import { CHECK_AUTHORIZED_PROFILE } from 'graphql/user/queries';
 
 export interface UserStore {
-  user?: User;
+  isSignedIn: boolean;
   loading: boolean;
 }
 
@@ -16,9 +16,9 @@ interface Props {
 export const UserContext = createContext<UserStore>({} as UserStore);
 
 export const UserProvider: React.FC<Props> = (props) => {
-  const { loading, data } = useQuery<User>(GET_PROFILE);
+  const { loading, data } = useQuery<User>(CHECK_AUTHORIZED_PROFILE);
 
-  const value = useMemo(() => ({ user: data?.profile, loading }), [data, loading]);
+  const value = useMemo(() => ({ isSignedIn: !!data?.profile, loading }), [data, loading]);
 
   return <UserContext.Provider value={value} {...props} />;
 };

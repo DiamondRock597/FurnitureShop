@@ -16,7 +16,7 @@ const Stack = createNativeStackNavigator<AppStackParamList>();
 const routesWithHeader = [Routes.ShippingAddress, Routes.AddShippingAddress];
 
 export const AppNavigator = () => {
-  const { user, loading } = useUser();
+  const { isSignedIn, loading } = useUser();
 
   if (loading) {
     return <FullPageLoader />;
@@ -25,9 +25,12 @@ export const AppNavigator = () => {
   return (
     <Stack.Navigator
       screenOptions={{
-        header: ({ route }) => (routesWithHeader.includes(route.name) ? <Header name={route.name} /> : null),
+        header: ({ route }) => {
+          const isRouteInList = routesWithHeader.includes(route.name);
+          return isRouteInList ? <Header name={route.name} isBasketVisible={isRouteInList} isBackButtonVisible={isRouteInList} /> : null;
+        },
       }}
-      initialRouteName={user ? Routes.TabNavigator : Routes.Onboarding}
+      initialRouteName={isSignedIn ? Routes.TabNavigator : Routes.Onboarding}
     >
       <Stack.Screen component={Onboarding} name={Routes.Onboarding} />
       <Stack.Screen component={AuthScreen} name={Routes.Auth} />

@@ -4,6 +4,7 @@ import { GraphQLError } from 'graphql';
 import { UserModel } from '../models/user.model.js';
 import { tokenService } from './token.service.js';
 import { UserDto } from '../dto/user.dto.js';
+import { shippingAddressService } from "./shipping-address.service.js";
 
 //TODO: create error catcher
 class UserService {
@@ -49,7 +50,14 @@ class UserService {
             throw new GraphQLError('Does not exist');
         }
 
-        return user;
+        const shippingAddresses = await shippingAddressService.getList(id);
+
+        return {
+            ...user,
+            id,
+            shippingAddresses,
+            addressesCount: shippingAddresses.length
+        };
     }
 }
 

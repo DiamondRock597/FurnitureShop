@@ -12,11 +12,6 @@ class ShippingAddressService {
         return addresses.map(ShippingAddressDto.parse);
     }
 
-    getCount = async (userId) => {
-        const list = await this.getList(userId);
-        return list.length;
-    };
-
     createAddress = async (userId, input) => {
         if (!userId) {
             throw new GraphQLError('Does not exist');

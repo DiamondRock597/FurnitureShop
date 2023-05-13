@@ -4,7 +4,7 @@ import { StyleSheet } from 'react-native';
 
 export const styles = StyleSheet.create({
   container: {
-    paddingVertical: 10,
+    paddingVertical: 20,
   },
   controlContainer: {
     flexDirection: 'row',

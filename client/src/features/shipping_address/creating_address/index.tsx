@@ -31,7 +31,7 @@ export const CreateAddressScreen = () => {
           name={FormValues.Zipcode}
           rules={{ required: 'Zipcode is required' }}
           render={({ field, fieldState: { error } }) => (
-            <Input value={field.value} error={!!error} onChangeText={field.onChange} title="Zipcode (Postal Code)" />
+            <Input value={field.value} error={!!error} onChangeText={field.onChange} keyboardType="number-pad" title="Zipcode (Postal Code)" />
           )}
         />
         <Controller

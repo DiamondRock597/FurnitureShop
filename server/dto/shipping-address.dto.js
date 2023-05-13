@@ -14,7 +14,7 @@ export class ShippingAddressDto {
         this.zipcode = model.zipcode;
         this.name = model.name;
         this.country = model.country;
-        this.isActive = model.isActive;
+        this.isActive = model.isActive ?? false;
         this.city = model.city;
         this.id = model._id;
     }

@@ -3,13 +3,19 @@ import { Text, View } from 'react-native';
 import CheckBox from '@react-native-community/checkbox';
 
 import { Colors } from 'constants/colors';
+import { ShippingAddress } from 'models/shipping_address/shipping_address';
 
 import { styles } from './styles';
 
-export const AddressItem = () => (
+interface Props {
+  item: ShippingAddress;
+}
+
+export const AddressItem: React.FC<Props> = ({ item }) => (
   <View style={styles.container}>
     <View style={styles.controlContainer}>
       <CheckBox
+        value={item.isActive}
         style={styles.checkboxContainer}
         onCheckColor={Colors.Primary}
         onTintColor={Colors.SecondaryBlack}
@@ -24,11 +30,12 @@ export const AddressItem = () => (
     </View>
     <View style={styles.addressCard}>
       <View style={styles.header}>
-        <Text style={styles.name}>Bruno Fernandes</Text>
+        <Text style={styles.name}>{item.name}</Text>
       </View>
       <View style={styles.addressContainer}>
-        <Text style={styles.address}>25 rue Robert Latouche, Nice, 06200, Côte</Text>
-        <Text style={styles.address}>D’azur, France</Text>
+        <Text style={styles.address} numberOfLines={2}>
+          {item.address}, {item.zipcode}, {item.city}, {item.country}
+        </Text>
       </View>
     </View>
   </View>

@@ -40,7 +40,7 @@ export interface UseCreateAddressReturn {
 export const useCreateAddress = (): UseCreateAddressReturn => {
   const navigation = useNavigation();
   const [createAddess, { loading, error, data }] = useMutation(CREATE_SHIPPING_ADDRESS);
-  const { user } = useUser();
+  // const { user } = useUser();
 
   useEffect(() => {
     if (error) {
