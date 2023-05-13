@@ -10,8 +10,6 @@ import { AppStackParamList, Routes } from 'navigation/routes';
 import { GET_SHIPPING_ADDRESSES } from 'graphql/user/queries';
 import { ShippingAddress } from 'models/shipping_address/shipping_address';
 
-import { styles } from './styles';
-
 export const AddressScreen = () => {
   const { data, loading, refetch } = useQuery<{ profile: { shippingAddresses: Array<ShippingAddress> } }>(GET_SHIPPING_ADDRESSES, {
     fetchPolicy: 'no-cache',
@@ -23,7 +21,6 @@ export const AddressScreen = () => {
   return (
     <ScreenWrapper>
       <FlatList
-        style={styles.listContainer}
         refreshing={loading}
         onRefresh={refetch}
         data={data?.profile.shippingAddresses}

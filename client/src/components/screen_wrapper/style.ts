@@ -6,6 +6,6 @@ export const style = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: Colors.Primary,
-    paddingHorizontal: 10,
+    paddingHorizontal: 20,
   },
 });

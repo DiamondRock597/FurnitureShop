@@ -1,9 +1,9 @@
-import { Colors } from 'constants/colors';
-import { Fonts } from 'constants/fonts';
 import { StyleSheet } from 'react-native';
 
+import { Colors } from 'constants/colors';
+import { Fonts } from 'constants/fonts';
+
 export const styles = StyleSheet.create({
-  paymentContainer: { paddingVertical: 10 },
   cardContainer: {
     paddingHorizontal: 25,
     paddingVertical: 20,

@@ -5,16 +5,17 @@ import { Onboarding } from 'features/auth/onboarding';
 import { AuthScreen } from '@features/auth/auth_screen';
 import { AddressScreen } from 'features/shipping_address/address_list';
 import { CreateAddressScreen } from '@features/shipping_address/creating_address';
-import { PaymentMethodScreen } from 'features/payment_method/method_list';
+import { PaymentMethodScreen } from 'features/payment/method_list';
 import { useUser } from '@hooks/useUser';
 import { FullPageLoader } from '@components/full_page_loader';
 import { TabNavigator } from './MainNavigator';
 import { AppStackParamList, Routes } from './routes';
 import { Header } from 'components/ui/header';
+import { CreatePaymentScreen } from 'features/payment/creating_payment';
 
 const Stack = createNativeStackNavigator<AppStackParamList>();
 
-const routesWithHeader = [Routes.ShippingAddress, Routes.AddShippingAddress, Routes.PaymentMethod];
+const routesWithHeader = [Routes.ShippingAddress, Routes.AddShippingAddress, Routes.PaymentMethod, Routes.AddPaymentMethod];
 
 export const AppNavigator = () => {
   const { isSignedIn, loading } = useUser();
@@ -40,6 +41,7 @@ export const AppNavigator = () => {
       <Stack.Screen component={CreateAddressScreen} name={Routes.AddShippingAddress} />
 
       <Stack.Screen component={PaymentMethodScreen} name={Routes.PaymentMethod} />
+      <Stack.Screen component={CreatePaymentScreen} name={Routes.AddPaymentMethod} />
     </Stack.Navigator>
   );
 };
