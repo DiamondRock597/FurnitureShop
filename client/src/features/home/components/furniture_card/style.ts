@@ -6,6 +6,7 @@ import { Fonts } from '@constants/fonts';
 export const style = StyleSheet.create({
   container: {
     flex: 1,
+    marginVertical: 5,
   },
   image: {
     borderRadius: 10,

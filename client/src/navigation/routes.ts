@@ -9,6 +9,7 @@ export enum Routes {
   AddShippingAddress = 'AddShippingAddress',
   PaymentMethod = 'PaymentMethod',
   AddPaymentMethod = 'AddPaymentMethod',
+  Product = 'Product',
 }
 
 export type AppStackParamList = {
@@ -19,6 +20,9 @@ export type AppStackParamList = {
   [Routes.AddShippingAddress]: undefined;
   [Routes.PaymentMethod]: undefined;
   [Routes.AddPaymentMethod]: undefined;
+  [Routes.Product]: {
+    productId: string;
+  };
 };
 
 export type MainTabParamList = {

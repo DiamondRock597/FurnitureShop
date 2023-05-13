@@ -12,6 +12,7 @@ import { TabNavigator } from './MainNavigator';
 import { AppStackParamList, Routes } from './routes';
 import { Header } from 'components/ui/header';
 import { CreatePaymentScreen } from 'features/payment/creating_payment';
+import { ProductScreen } from 'features/home/product';
 
 const Stack = createNativeStackNavigator<AppStackParamList>();
 
@@ -42,6 +43,8 @@ export const AppNavigator = () => {
 
       <Stack.Screen component={PaymentMethodScreen} name={Routes.PaymentMethod} />
       <Stack.Screen component={CreatePaymentScreen} name={Routes.AddPaymentMethod} />
+
+      <Stack.Screen component={ProductScreen} name={Routes.Product} />
     </Stack.Navigator>
   );
 };

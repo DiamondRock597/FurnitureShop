@@ -31,16 +31,4 @@ export const styles = StyleSheet.create({
     height: ICON_SIZE,
     tintColor: Colors.SecondaryBlack,
   },
-  backButton: {
-    width: 15,
-    height: 15,
-    tintColor: Colors.SecondaryBlack,
-    transform: [{ rotate: '-180deg' }],
-  },
-  hitSlop: {
-    top: ICON_SIZE,
-    bottom: ICON_SIZE,
-    left: ICON_SIZE,
-    right: ICON_SIZE,
-  },
 });
