@@ -10,15 +10,25 @@ import { AppStackParamList, Routes } from 'navigation/routes';
 import { GET_SHIPPING_ADDRESSES } from 'graphql/user/queries';
 import { ShippingAddress } from 'models/shipping_address/shipping_address';
 
+import { styles } from './styles';
+
 export const AddressScreen = () => {
-  const { data, loading, refetch } = useQuery<{ shippingAddresses: Array<ShippingAddress> }>(GET_SHIPPING_ADDRESSES, { fetchPolicy: 'no-cache' });
+  const { data, loading, refetch } = useQuery<{ profile: { shippingAddresses: Array<ShippingAddress> } }>(GET_SHIPPING_ADDRESSES, {
+    fetchPolicy: 'no-cache',
+  });
   const navigation = useNavigation<NavigationProp<AppStackParamList>>();
 
   const navigateToCreatAddress = () => navigation.navigate(Routes.AddShippingAddress);
 
   return (
     <ScreenWrapper>
-      <FlatList refreshing={loading} onRefresh={refetch} data={data?.shippingAddresses} renderItem={({ item }) => <AddressItem item={item} />} />
+      <FlatList
+        style={styles.listContainer}
+        refreshing={loading}
+        onRefresh={refetch}
+        data={data?.profile.shippingAddresses}
+        renderItem={({ item }) => <AddressItem item={item} />}
+      />
       <FloatingButton onPress={navigateToCreatAddress} />
     </ScreenWrapper>
   );

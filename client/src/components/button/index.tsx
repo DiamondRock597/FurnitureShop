@@ -1,10 +1,10 @@
 import React from 'react';
-import { Text, TouchableOpacity, TouchableOpacityProps } from 'react-native';
+import { ActivityIndicator, Text, TouchableOpacity, TouchableOpacityProps } from 'react-native';
 
 import { Fonts } from 'constants/fonts';
+import { Colors } from 'constants/colors';
 
 import { styles } from './style';
-import { Loader } from 'components/loader';
 
 export enum RoundedType {
   Little = 'Little',
@@ -27,7 +27,7 @@ export const Button: React.FC<Props> = ({ roundedType, text, fontFamily, style, 
   const borderRadius = roundedType ? borderRadiusMap[roundedType] : borderRadiusMap[RoundedType.Little];
   return (
     <TouchableOpacity style={[styles.container, { borderRadius }, style]} {...props}>
-      {isLoading ? <Loader /> : <Text style={[styles.text, { fontFamily }]}>{text}</Text>}
+      {isLoading ? <ActivityIndicator size="small" color={Colors.Primary} /> : <Text style={[styles.text, { fontFamily }]}>{text}</Text>}
     </TouchableOpacity>
   );
 };

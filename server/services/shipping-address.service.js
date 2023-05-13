@@ -18,7 +18,7 @@ class ShippingAddressService {
         }
 
         const address = await ShippingAddressModel.create({ ...input, userId });
-        return ShippingAddressDto.parse(address);
+        return address._id;
     }
 
     setActiveAddress = (addressId) => ShippingAddressModel.findByIdAndUpdate(addressId, { isActive: true });

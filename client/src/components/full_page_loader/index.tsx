@@ -1,12 +1,12 @@
 import React from 'react';
-import { View } from 'react-native';
+import { ActivityIndicator, View } from 'react-native';
 
-import { Loader } from 'components/loader';
+import { Colors } from 'constants/colors';
 
 import { styles } from './styles';
 
 export const FullPageLoader = () => (
   <View style={styles.container}>
-    <Loader />
+    <ActivityIndicator size="large" color={Colors.SecondaryBlack} />
   </View>
 );

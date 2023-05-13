@@ -40,7 +40,6 @@ export interface UseCreateAddressReturn {
 export const useCreateAddress = (): UseCreateAddressReturn => {
   const navigation = useNavigation();
   const [createAddess, { loading, error, data }] = useMutation(CREATE_SHIPPING_ADDRESS);
-  // const { user } = useUser();
 
   useEffect(() => {
     if (error) {
@@ -56,7 +55,7 @@ export const useCreateAddress = (): UseCreateAddressReturn => {
 
   const { control, handleSubmit }: UseFormReturn<FormTypes> = useForm<FormTypes>({
     defaultValues: {
-      name: user?.email ?? '',
+      name: '',
       address: '',
       zipcode: '',
       country: '',

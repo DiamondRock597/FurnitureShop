@@ -12,6 +12,7 @@ export const shippingAddressResolver = {
 
                 return shippingAddressService.createAddress(userId, input)
             } catch (error) {
+                console.log({error});
                 return error;
             }
         }

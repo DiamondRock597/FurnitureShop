@@ -7,6 +7,7 @@ export enum Routes {
   Profile = 'Profile',
   ShippingAddress = 'ShippingAddress',
   AddShippingAddress = 'AddShippingAddress',
+  PaymentMethod = 'PaymentMethod',
 }
 
 export type AppStackParamList = {
@@ -15,6 +16,7 @@ export type AppStackParamList = {
   [Routes.Onboarding]: undefined;
   [Routes.ShippingAddress]: undefined;
   [Routes.AddShippingAddress]: undefined;
+  [Routes.PaymentMethod]: undefined;
 };
 
 export type MainTabParamList = {

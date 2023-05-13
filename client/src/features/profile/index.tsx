@@ -11,7 +11,7 @@ import { User } from 'models/user/user';
 export const ProfileScreen = () => {
   const { data, loading } = useQuery<{ profile: User }>(GET_PROFILE);
 
-  if (!loading) {
+  if (loading) {
     return <FullPageLoader />;
   }
 

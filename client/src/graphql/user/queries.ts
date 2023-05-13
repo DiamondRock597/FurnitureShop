@@ -28,6 +28,7 @@ export const GET_SHIPPING_ADDRESSES = gql`
         country
         city
         isActive
+        address
       }
     }
   }
