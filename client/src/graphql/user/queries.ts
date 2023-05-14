@@ -14,6 +14,7 @@ export const GET_PROFILE = gql`
       name
       email
       addressesCount
+      paymentsCount
     }
   }
 `;
@@ -29,6 +30,20 @@ export const GET_SHIPPING_ADDRESSES = gql`
         city
         isActive
         address
+      }
+    }
+  }
+`;
+
+export const GET_PAYMENTS = gql`
+  query {
+    profile {
+      payments {
+        holderName
+        id
+        cardNumber
+        cvv
+        isActive
       }
     }
   }

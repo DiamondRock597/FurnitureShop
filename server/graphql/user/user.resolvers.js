@@ -12,6 +12,7 @@ export const userResolvers = {
 
                 return userService.getUser(userId);
             } catch (error) {
+                console.log({error});
                 return error;
             }
         }

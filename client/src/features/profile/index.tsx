@@ -20,7 +20,7 @@ export const ProfileScreen = () => {
     <ScreenWrapper>
       <ProfileHeader />
       <ProfileInfo name={data?.profile.name} email={data?.profile.email} />
-      <ProfileMenu addressesCount={data?.profile.addressesCount} />
+      <ProfileMenu addressesCount={data?.profile.addressesCount} paymentsCount={data?.profile.paymentsCount} />
     </ScreenWrapper>
   );
 };

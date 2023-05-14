@@ -5,6 +5,8 @@ import { UserModel } from '../models/user.model.js';
 import { tokenService } from './token.service.js';
 import { UserDto } from '../dto/user.dto.js';
 import { shippingAddressService } from "./shipping-address.service.js";
+import { paymentService } from "./payment.service.js";
+
 
 //TODO: create error catcher
 class UserService {
@@ -50,13 +52,16 @@ class UserService {
             throw new GraphQLError('Does not exist');
         }
 
-        const shippingAddresses = await shippingAddressService.getList(id);
 
+        const [shippingAddresses, payments] = await Promise.all([shippingAddressService.getList(id), paymentService.getList(id)]);
         return {
-            ...user,
+            email: user.email,
+            name: user.name,
             id,
             shippingAddresses,
-            addressesCount: shippingAddresses.length
+            addressesCount: shippingAddresses.length,
+            payments,
+            paymentsCount: payments.length
         };
     }
 }

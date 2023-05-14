@@ -16,7 +16,7 @@ class PaymentService {
         }
 
         const payment = await PaymentModel.create({ userId, ...input });
-        return PaymentDto.parse(payment);
+        return payment._id;
     }
 
     togglePayment = (paymentId) => PaymentModel.findByIdAndUpdate(paymentId, { isActive: true });

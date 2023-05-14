@@ -11,12 +11,22 @@ export const userSchema = buildSchema(`#graphql
         city: String!
     }
 
+    type Payment {
+        id: ID!
+        holderName: String!
+        cardNumber: String!
+        isActive: Boolean!
+        cvv: String!
+    }
+
     type User {
         id: ID
         email: String
         name: String
         shippingAddresses: [ShippingAddress]
         addressesCount: Int
+        payments: [Payment]
+        paymentsCount: Int
     }
 
     type AuthResponse {

@@ -9,9 +9,10 @@ import { styles } from './styles';
 
 interface Props {
   addressesCount?: number;
+  paymentsCount?: number;
 }
 
-export const ProfileMenu: React.FC<Props> = ({ addressesCount }) => {
+export const ProfileMenu: React.FC<Props> = ({ addressesCount, paymentsCount }) => {
   const navigation = useNavigation<NavigationProp<AppStackParamList>>();
 
   const navigateToAddresses = () => navigation.navigate(Routes.ShippingAddress);
@@ -22,8 +23,8 @@ export const ProfileMenu: React.FC<Props> = ({ addressesCount }) => {
     <ScrollView style={styles.scrollContainer}>
       <ProfileMenuItem title="My orders" subtitle="Already have 3 orders" />
       <ProfileMenuItem title="Shipping Addresses" subtitle={`${addressesCount} Addresses`} onPress={navigateToAddresses} />
-      <ProfileMenuItem title="Payment method" subtitle="You have 0 cards" onPress={navigateToPaymentMethod} />
-      <ProfileMenuItem title="Settings" subtitle="Notification, Password, FAQ, Contact" />
+      <ProfileMenuItem title="Payment method" subtitle={`You have ${paymentsCount} cards`} onPress={navigateToPaymentMethod} />
+      {/* <ProfileMenuItem title="Settings" subtitle="Notification, Password, FAQ, Contact" /> */}
     </ScrollView>
   );
 };
