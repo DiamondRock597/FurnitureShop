@@ -8,11 +8,12 @@ import { styles } from './styles';
 
 interface Props {
   item: ShippingAddress;
+  isCheckboxVisible?: boolean;
 }
 
-export const AddressItem: React.FC<Props> = ({ item }) => (
+export const AddressItem: React.FC<Props> = ({ item, isCheckboxVisible }) => (
   <View style={styles.container}>
-    <CheckboxController isActive={item.isActive} title="shipping address" />
+    {isCheckboxVisible ? <CheckboxController isActive={item.isActive} title="shipping address" /> : null}
     <View style={styles.addressCard}>
       <View style={styles.header}>
         <Text style={styles.name}>{item.name}</Text>

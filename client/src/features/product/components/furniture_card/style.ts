@@ -9,10 +9,9 @@ export const style = StyleSheet.create({
     marginVertical: 5,
   },
   image: {
-    borderRadius: 10,
+    borderRadius: 20,
     width: 157,
     height: 200,
-    backgroundColor: 'red',
   },
   name: {
     color: Colors.SecondaryGrey,

@@ -16,11 +16,11 @@ export const Header: React.FC<Props> = ({ isProfile, name, isBackButtonVisible, 
   <SafeAreaView style={styles.container}>
     {isBackButtonVisible ? <BackButton /> : null}
     <Text style={styles.title}>{name}</Text>
-    {isBasketVisible ? (
+    {/* {isBasketVisible ? (
       <TouchableOpacity>
         <Image style={styles.icon} source={require('@assets/images/basket.png')} />
       </TouchableOpacity>
-    ) : null}
+    ) : null} */}
     {isProfile ? (
       <TouchableOpacity>
         <Image style={styles.icon} source={require('@assets/images/logout.png')} />

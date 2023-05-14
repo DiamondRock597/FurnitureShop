@@ -2,7 +2,7 @@ import React from 'react';
 import { FlatList } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 
-import { Header } from 'features/home/components/header';
+import { Header } from 'features/product/components/header';
 import { FurnitureCard } from '../components/furniture_card';
 
 import { style } from './style';

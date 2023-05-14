@@ -12,11 +12,22 @@ import { TabNavigator } from './MainNavigator';
 import { AppStackParamList, Routes } from './routes';
 import { Header } from 'components/ui/header';
 import { CreatePaymentScreen } from 'features/payment/creating_payment';
-import { ProductScreen } from 'features/home/product';
+import { ProductScreen } from 'features/product/product';
+import { CartScreen } from 'features/product/cart';
+import { routeNames } from 'constants/route_names';
+import { CheckoutScreen } from 'features/product/checkout';
+import { SuccessfulOrderScreen } from 'features/product/successful_order';
 
 const Stack = createNativeStackNavigator<AppStackParamList>();
 
-const routesWithHeader = [Routes.ShippingAddress, Routes.AddShippingAddress, Routes.PaymentMethod, Routes.AddPaymentMethod];
+const routesWithHeader = [
+  Routes.ShippingAddress,
+  Routes.AddShippingAddress,
+  Routes.PaymentMethod,
+  Routes.AddPaymentMethod,
+  Routes.Cart,
+  Routes.Checkout,
+];
 
 export const AppNavigator = () => {
   const { isSignedIn, loading } = useUser();
@@ -30,7 +41,7 @@ export const AppNavigator = () => {
       screenOptions={{
         header: ({ route }) => {
           const isRouteInList = routesWithHeader.includes(route.name);
-          return isRouteInList ? <Header name={route.name} isBasketVisible={isRouteInList} isBackButtonVisible={isRouteInList} /> : null;
+          return isRouteInList ? <Header name={routeNames[route.name]} isBasketVisible={isRouteInList} isBackButtonVisible={isRouteInList} /> : null;
         },
       }}
       initialRouteName={isSignedIn ? Routes.TabNavigator : Routes.Onboarding}
@@ -45,6 +56,9 @@ export const AppNavigator = () => {
       <Stack.Screen component={CreatePaymentScreen} name={Routes.AddPaymentMethod} />
 
       <Stack.Screen component={ProductScreen} name={Routes.Product} />
+      <Stack.Screen component={CartScreen} name={Routes.Cart} />
+      <Stack.Screen component={CheckoutScreen} name={Routes.Checkout} />
+      <Stack.Screen component={SuccessfulOrderScreen} name={Routes.SuccessfulOrder} />
     </Stack.Navigator>
   );
 };

@@ -1,7 +1,7 @@
 import React from 'react';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 
-import { HomeScreen } from '@features/home/home_screen';
+import { HomeScreen } from 'features/product/home_screen';
 import { ProfileScreen } from 'features/profile';
 import { MainTabParamList, Routes } from './routes';
 import { TabIcon } from 'components/tab_icon';
