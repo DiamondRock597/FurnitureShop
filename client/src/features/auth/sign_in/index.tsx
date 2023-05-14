@@ -44,7 +44,6 @@ export const SignIn: React.FC<Props> = ({ goToSignUp }) => {
         )}
       />
       <View style={style.button}>
-        <TransparentButton text="Forgot Password" onPress={onSubmit} />
         <Button text="SIGN IN" roundedType={RoundedType.Medium} onPress={onSubmit} />
         <TransparentButton text="SIGN UP" onPress={goToSignUp} />
       </View>

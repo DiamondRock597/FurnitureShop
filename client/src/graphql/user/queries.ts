@@ -33,11 +33,3 @@ export const GET_SHIPPING_ADDRESSES = gql`
     }
   }
 `;
-
-export const LOGIN = gql`
-  query Login($input: AuthInput) {
-    login(input: $input) {
-      accessToken
-    }
-  }
-`;

@@ -1,14 +1,14 @@
 import { useCallback, useEffect, useMemo } from 'react';
 import { Alert } from 'react-native';
-import { useLazyQuery } from '@apollo/client';
+import { useMutation } from '@apollo/client';
 import { Control, useForm, UseFormReturn } from 'react-hook-form';
 import { NavigationProp, useNavigation } from '@react-navigation/native';
 
-import { LOGIN } from '@graphql/user/queries';
 import { LoginPayload } from '@models/user/login_payload';
 import { AuthResponse } from '@models/user/auth_response';
 import { tokenRepository } from 'repositories/TokenRepository';
 import { MainTabParamList, Routes } from '@navigation/routes';
+import { LOGIN } from 'graphql/user/mutations';
 
 export enum FormValues {
   Email = 'email',
@@ -26,7 +26,7 @@ export interface UseSignInReturn {
 }
 
 export const useSignIn: () => UseSignInReturn = () => {
-  const [login, loginData] = useLazyQuery<{ login: AuthResponse }, { input: LoginPayload }>(LOGIN);
+  const [login, { data, error }] = useMutation<{ login: AuthResponse }, { input: LoginPayload }>(LOGIN);
   const { navigate }: NavigationProp<MainTabParamList> = useNavigation();
 
   const { control, handleSubmit }: UseFormReturn<FormTypes> = useForm<FormTypes>({
@@ -37,8 +37,8 @@ export const useSignIn: () => UseSignInReturn = () => {
   });
 
   useEffect(() => {
-    const userData = loginData.data?.login;
-    const errorMessage = loginData.error?.message;
+    const userData = data?.login;
+    const errorMessage = error?.message;
 
     if (errorMessage) {
       Alert.alert('Error', errorMessage);
@@ -49,7 +49,7 @@ export const useSignIn: () => UseSignInReturn = () => {
       tokenRepository.saveToken(userData.accessToken);
       navigate(Routes.TabNavigator);
     }
-  }, [loginData, navigate]);
+  }, [data, error, navigate]);
 
   const onLogin = useCallback((input: LoginPayload) => login({ variables: { input } }), [login]);
 
@@ -60,6 +60,6 @@ export const useSignIn: () => UseSignInReturn = () => {
       onSubmit,
       control,
     }),
-    [onSubmit, control],
+    [onSubmit, control]
   );
 };

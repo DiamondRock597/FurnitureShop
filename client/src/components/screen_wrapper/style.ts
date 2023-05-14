@@ -8,4 +8,8 @@ export const style = StyleSheet.create({
     backgroundColor: Colors.Primary,
     paddingHorizontal: 20,
   },
+  safeArea: {
+    ...StyleSheet.absoluteFillObject,
+    backgroundColor: Colors.Primary,
+  },
 });

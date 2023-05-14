@@ -1,12 +1,11 @@
 import React from 'react';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 
-import { HomeScreen } from 'features/product/home_screen';
+import { HomeScreen } from 'features/product/home';
 import { ProfileScreen } from 'features/profile';
 import { MainTabParamList, Routes } from './routes';
 import { TabIcon } from 'components/tab_icon';
 import { Colors } from 'constants/colors';
-import { Header } from 'components/ui/header';
 
 const BottomTab = createBottomTabNavigator<MainTabParamList>();
 
@@ -17,7 +16,7 @@ export const TabNavigator = () => (
       tabBarActiveTintColor: Colors.SecondaryBlackBold,
       tabBarInactiveTintColor: Colors.SecondaryGreyLight,
       tabBarIcon: ({ color }) => <TabIcon name={route.name} color={color} />,
-      header: () => (route.name === Routes.Home ? null : <Header name={route.name} isProfile={route.name === Routes.Profile} />),
+      headerShown: false,
     })}
   >
     <BottomTab.Screen name={Routes.Home} component={HomeScreen} />

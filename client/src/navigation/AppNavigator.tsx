@@ -10,13 +10,13 @@ import { useUser } from '@hooks/useUser';
 import { FullPageLoader } from '@components/full_page_loader';
 import { TabNavigator } from './MainNavigator';
 import { AppStackParamList, Routes } from './routes';
-import { Header } from 'components/ui/header';
+import { Header } from 'components/header';
 import { CreatePaymentScreen } from 'features/payment/creating_payment';
 import { ProductScreen } from 'features/product/product';
-import { CartScreen } from 'features/product/cart';
+import { CartScreen } from 'features/order/cart';
 import { routeNames } from 'constants/route_names';
-import { CheckoutScreen } from 'features/product/checkout';
-import { SuccessfulOrderScreen } from 'features/product/successful_order';
+import { CheckoutScreen } from 'features/order/checkout';
+import { SuccessfulOrderScreen } from 'features/order/successful_order';
 
 const Stack = createNativeStackNavigator<AppStackParamList>();
 

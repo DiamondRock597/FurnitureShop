@@ -1,9 +1,7 @@
-import { Dimensions, StyleSheet } from 'react-native';
+import { StyleSheet } from 'react-native';
 
 import { Fonts } from 'constants/fonts';
 import { Colors } from 'constants/colors';
-
-const ICON_SIZE = 20;
 
 export const styles = StyleSheet.create({
   container: {
@@ -14,7 +12,8 @@ export const styles = StyleSheet.create({
     paddingHorizontal: 20,
     alignItems: 'center',
     alignSelf: 'center',
-    backgroundColor: Colors.Primary,
+    backgroundColor: 'white',
+    paddingVertical: 25,
   },
   title: {
     fontFamily: Fonts.GelasioSemiBold,
@@ -26,10 +25,5 @@ export const styles = StyleSheet.create({
     justifyContent: 'center',
     alignSelf: 'center',
     width: '95%',
-  },
-  icon: {
-    width: ICON_SIZE,
-    height: ICON_SIZE,
-    tintColor: Colors.SecondaryBlack,
   },
 });

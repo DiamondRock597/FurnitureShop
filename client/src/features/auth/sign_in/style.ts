@@ -9,7 +9,7 @@ const WIDTH_RATIO = 0.9;
 export const style = StyleSheet.create({
   container: {
     width: width * WIDTH_RATIO,
-    height: '90%',
+    height: '75%',
     justifyContent: 'space-around',
     alignItems: 'center',
     paddingHorizontal: 15,
@@ -26,7 +26,7 @@ export const style = StyleSheet.create({
   },
   button: {
     width: '90%',
-    height: '45%',
+    height: '25%',
     justifyContent: 'space-between',
   },
 });
