@@ -14,12 +14,14 @@ export const paymentResolver = {
                 return error;
             }
         },
-        togglePayment: async (root, { input }, { isAuth }) => {
+        updatePaymentMethod: async (root, { input, id }, { isAuth }) => {
             try {
+                console.log({id, input});
                 if (!isAuth) {
                     throw new GraphQLError('User is not authinticated');
                 }
-                return paymentService.togglePayment(input)
+                
+                return paymentService.updatePaymentMethod(id, input);
             } catch (error) {
                 return error;
             }

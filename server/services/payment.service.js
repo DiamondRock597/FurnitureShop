@@ -1,3 +1,5 @@
+import { GraphQLError } from 'graphql';
+
 import { PaymentDto } from '../dto/payment.dto.js';
 import { PaymentModel } from '../models/payment.model.js';
 
@@ -19,7 +21,10 @@ class PaymentService {
         return payment._id;
     }
 
-    togglePayment = (paymentId) => PaymentModel.findByIdAndUpdate(paymentId, { isActive: true });
+    updatePaymentMethod = async (id, input) => {
+        const payment = await PaymentModel.findByIdAndUpdate(id, input, { new: true });
+        return payment._id;
+    }
 }
 
 export const paymentService = new PaymentService();

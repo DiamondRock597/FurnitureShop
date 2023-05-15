@@ -6,9 +6,11 @@ export const furnitureSchema = buildSchema(`#graphql
         name: String!
         cost: Int!
         description: String!
+        image: String!
     }
 
     type Query {
-        getFurnitures: [Furniture]
+        furnitures: [Furniture]
+        furniture(id: ID): Furniture
     }
 `);

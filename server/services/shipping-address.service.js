@@ -21,7 +21,14 @@ class ShippingAddressService {
         return address._id;
     }
 
-    setActiveAddress = (addressId) => ShippingAddressModel.findByIdAndUpdate(addressId, { isActive: true });
+    updateAddress = async(userId, input) => {
+        if (!userId) {
+            throw new GraphQLError('Does not exist');
+        }
+
+        const address = await ShippingAddressModel.findByIdAndUpdate(input.id, input, { new: true });
+        return address._id;
+    }
 }
 
 export const shippingAddressService = new ShippingAddressService();

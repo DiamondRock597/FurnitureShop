@@ -1,19 +1,22 @@
-import { StyleSheet } from 'react-native';
+import { Dimensions, StyleSheet } from 'react-native';
 
 import { Colors } from '@constants/colors';
 import { Fonts } from '@constants/fonts';
 
+const { width, height } = Dimensions.get('window');
+
 export const style = StyleSheet.create({
   container: {
     flex: 1,
-    marginVertical: 5,
+    marginVertical: 8,
   },
   image: {
     borderRadius: 20,
-    width: 157,
-    height: 200,
+    width: width * 0.4,
+    height: height * 0.25,
   },
   name: {
+    paddingVertical: 3,
     color: Colors.SecondaryGrey,
     fontSize: 14,
     lineHeight: 19,

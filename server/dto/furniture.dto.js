@@ -2,6 +2,7 @@ export class FurnitureDto {
     id;
     name;
     cost;
+    image;
     description;
 
     static parse = (model) => new FurnitureDto(model);
@@ -11,5 +12,6 @@ export class FurnitureDto {
         this.cost = model.cost;
         this.description = model.description;
         this.name = model.name;
+        this.image = model.image;
     }
 }

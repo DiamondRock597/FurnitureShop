@@ -1,24 +1,29 @@
 import React from 'react';
-import { FlatList } from 'react-native';
-import { SafeAreaView } from 'react-native-safe-area-context';
+import { FlatList, SafeAreaView } from 'react-native';
+import { useQuery } from '@apollo/client';
 
 import { Header } from 'features/product/components/header';
 import { FurnitureCard } from '../components/furniture_card';
+import { GET_FURNITURES } from 'graphql/furniture/query';
 
 import { style } from './style';
 
-const data = [
-  { id: 1, price: 100, name: 'Name' },
-  { id: 2, price: 100, name: 'Name' },
-  { id: 3, price: 100, name: 'Name' },
-];
-
 export const HomeScreen = () => {
-  const renderItem = ({ item }) => <FurnitureCard price={item.price} name={item.name} />;
+  const { data, refetch, loading } = useQuery(GET_FURNITURES);
   return (
     <SafeAreaView style={style.container}>
       <Header />
-      <FlatList numColumns={2} contentContainerStyle={style.list} data={data} renderItem={renderItem} />
+      <FlatList
+        showsVerticalScrollIndicator
+        indicatorStyle="black"
+        refreshing={loading}
+        keyExtractor={(item) => `FurnitureCard-${item.id}`}
+        onRefresh={refetch}
+        numColumns={2}
+        contentContainerStyle={style.list}
+        data={data?.furnitures}
+        renderItem={({ item }) => <FurnitureCard {...item} />}
+      />
     </SafeAreaView>
   );
 };

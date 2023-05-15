@@ -31,7 +31,7 @@ export const styles = StyleSheet.create({
     paddingHorizontal: 15,
     fontFamily: Fonts.NunitoSemiBold,
     fontSize: 18,
-    line: 25,
+    lineHeight: 25,
     letterSpacing: 0.5,
   },
 });

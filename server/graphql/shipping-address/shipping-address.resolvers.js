@@ -12,7 +12,17 @@ export const shippingAddressResolver = {
 
                 return shippingAddressService.createAddress(userId, input)
             } catch (error) {
-                console.log({error});
+                return error;
+            }
+        },
+        updateShippingAddress: (root, { input }, { userId, isAuth }) => {
+            try {
+                if (!isAuth) {
+                    throw new GraphQLError('User is not authinticated');
+                }
+
+                return shippingAddressService.updateAddress(userId, input)
+            } catch (error) {
                 return error;
             }
         }
