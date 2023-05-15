@@ -11,6 +11,7 @@ export const CHECK_AUTHORIZED_PROFILE = gql`
 export const GET_PROFILE = gql`
   query GetProfile {
     profile {
+      id
       name
       email
       addressesCount
@@ -22,6 +23,7 @@ export const GET_PROFILE = gql`
 export const GET_SHIPPING_ADDRESSES = gql`
   query {
     profile {
+      id
       shippingAddresses {
         name
         id
@@ -38,6 +40,7 @@ export const GET_SHIPPING_ADDRESSES = gql`
 export const GET_PAYMENTS = gql`
   query {
     profile {
+      id
       payments {
         holderName
         id

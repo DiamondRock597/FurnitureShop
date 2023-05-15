@@ -9,11 +9,13 @@ import { styles } from './styles';
 interface Props {
   isActive: boolean;
   title: string;
+  onChange: (value: boolean) => void;
 }
 
-export const CheckboxController: React.FC<Props> = ({ isActive, title }) => (
+export const CheckboxController: React.FC<Props> = ({ isActive, title, onChange }) => (
   <View style={styles.controlContainer}>
     <CheckBox
+      onValueChange={onChange}
       value={isActive}
       style={styles.checkboxContainer}
       onCheckColor={Colors.Primary}

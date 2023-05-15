@@ -2,10 +2,9 @@ import { useMutation } from '@apollo/client';
 import { useEffect } from 'react';
 import { Alert } from 'react-native';
 import { Control, useForm, UseFormReturn } from 'react-hook-form';
+import { useNavigation } from '@react-navigation/native';
 
 import { CREATE_SHIPPING_ADDRESS } from 'graphql/shipping_address/mutations';
-import { useUser } from 'hooks/useUser';
-import { useNavigation } from '@react-navigation/native';
 
 export enum FormValues {
   Name = 'name',
