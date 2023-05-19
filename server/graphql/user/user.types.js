@@ -1,10 +1,37 @@
 import { buildSchema } from "graphql";
 
 export const userSchema = buildSchema(`#graphql
+     type ShippingAddress {
+        id: ID!
+        name: String!
+        address: String!
+        zipcode: String
+        country: String!
+        isActive: Boolean!
+        city: String!
+    }
+
+    type Payment {
+        id: ID!
+        holderName: String!
+        cardNumber: String!
+        isActive: Boolean!
+        cvv: String!
+    }
+
     type User {
         id: ID
         email: String
         name: String
+        shippingAddresses: [ShippingAddress]
+        addressesCount: Int
+        payments: [Payment]
+        paymentsCount: Int
+    }
+
+    type AuthResponse {
+        user: User
+        accessToken: String
     }
 
     input AuthInput {
@@ -18,13 +45,8 @@ export const userSchema = buildSchema(`#graphql
         name: String!
     }
 
-    type AuthResponse {
-        user: User
-        accessToken: String
-    }
-
     type Query {
-        getProfile: User!
+        profile: User!
     }
 
     type Mutation {

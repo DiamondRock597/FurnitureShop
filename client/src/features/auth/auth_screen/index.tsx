@@ -3,8 +3,8 @@ import { ScaledSize, ScrollView, useWindowDimensions } from 'react-native';
 
 import { ScreenWrapper } from '@components/screen_wrapper';
 import { SignIn } from '../sign_in';
-import { Header } from '../header';
-import { Title } from '../title';
+import { Header } from '../components/header';
+import { Title } from '../components/title';
 import { SignUp } from '../sign_up';
 
 const START_POSITION = 0;

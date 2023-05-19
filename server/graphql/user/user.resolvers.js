@@ -4,7 +4,7 @@ import { userService } from "../../services/user.service.js";
 
 export const userResolvers = {
     Query: {
-        getProfile: async (root, args, { isAuth, userId }) => {
+        profile: async (root, args, { isAuth, userId }) => {
             try {
                 if (!isAuth) {
                     throw new GraphQLError('User is not authinticated');
@@ -12,6 +12,7 @@ export const userResolvers = {
 
                 return userService.getUser(userId);
             } catch (error) {
+                console.log({error});
                 return error;
             }
         }

@@ -64,7 +64,6 @@ module.exports = {
         arrayDestructuring: false,
         arrowParameter: false,
         memberVariableDeclaration: true,
-        objectDestructuring: true,
         parameter: true,
         propertyDeclaration: false,
         variableDeclaration: false,

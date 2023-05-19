@@ -4,7 +4,7 @@ import { View, Text, TouchableOpacity } from 'react-native';
 
 import { FormValues, FormTypes, useSignUp, UseSignUpReturn } from './useSignUp';
 import { Button, RoundedType } from '@components/button';
-import { Input } from '@components/input';
+import { AuthInput } from 'features/auth/components/input';
 
 import { style } from './style';
 
@@ -33,7 +33,7 @@ export const SignUp: React.FC<Props> = ({ goToSignIn }: Props) => {
         name={FormValues.Name}
         rules={{ required: 'Name is required' }}
         render={({ field, fieldState: { error } }: ControllerProps<FormValues.Name>) => (
-          <Input value={field.value} onChangeText={field.onChange} name="Name" keyboardType="name-phone-pad" error={error?.message} />
+          <AuthInput value={field.value} onChangeText={field.onChange} name="Name" keyboardType="name-phone-pad" error={error?.message} />
         )}
       />
       <Controller
@@ -41,7 +41,7 @@ export const SignUp: React.FC<Props> = ({ goToSignIn }: Props) => {
         name={FormValues.Email}
         rules={{ required: 'Email is required' }}
         render={({ field, fieldState: { error } }: ControllerProps<FormValues.Email>) => (
-          <Input value={field.value} onChangeText={field.onChange} name="Email" keyboardType="email-address" error={error?.message} />
+          <AuthInput value={field.value} onChangeText={field.onChange} name="Email" keyboardType="email-address" error={error?.message} />
         )}
       />
       <Controller
@@ -49,7 +49,7 @@ export const SignUp: React.FC<Props> = ({ goToSignIn }: Props) => {
         name={FormValues.Password}
         rules={PASSWORD_RULES}
         render={({ field, fieldState: { error } }: ControllerProps<FormValues.Password>) => (
-          <Input value={field.value} onChangeText={field.onChange} secureTextEntry name="Password" error={error?.message} />
+          <AuthInput value={field.value} onChangeText={field.onChange} secureTextEntry name="Password" error={error?.message} />
         )}
       />
       <Controller
@@ -57,7 +57,7 @@ export const SignUp: React.FC<Props> = ({ goToSignIn }: Props) => {
         name={FormValues.Confirmation}
         rules={PASSWORD_RULES}
         render={({ field, fieldState: { error } }: ControllerProps<FormValues.Confirmation>) => (
-          <Input value={field.value} onChangeText={field.onChange} secureTextEntry name="Confirm Password" error={error?.message} />
+          <AuthInput value={field.value} onChangeText={field.onChange} secureTextEntry name="Confirm Password" error={error?.message} />
         )}
       />
       <View style={style.button}>

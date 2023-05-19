@@ -1,32 +1,19 @@
 import { buildSchema } from "graphql";
 
 export const shippingAddressSchema = buildSchema(`#graphql
-    type ShippingAddress {
-        id: ID!
-        name: String!
-        address: String!
-        zipcode: String
-        country: String!
-        isActive: Boolean!
-        city: String!
-    }
-
-    type Query {
-        getShippingAddresses: [ShippingAddress]
-        getShippingAddress(input: ID): ShippingAddress
-    }
-
     input ShippingAddressInput {
-        name: String!
-        address: String!
+        name: String
+        address: String
         zipcode: String
-        country: String!
+        country: String
+        city: String
+        id: ID
         isActive: Boolean
-        city: String!
     }
+
 
     type Mutation {
-        togleAddress(input: ID): ShippingAddress
-        createShippingAddress(input: ShippingAddressInput): ShippingAddress
+        createShippingAddress(input: ShippingAddressInput): ID
+        updateShippingAddress(input: ShippingAddressInput): ID
     }
 `);

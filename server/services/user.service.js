@@ -1,9 +1,12 @@
 import bcrypt from 'bcrypt';
 import { GraphQLError } from 'graphql';
 
-import { UserModel } from '../models/user-model.js';
+import { UserModel } from '../models/user.model.js';
 import { tokenService } from './token.service.js';
-import { UserDto } from '../dto/user-dto.js';
+import { UserDto } from '../dto/user.dto.js';
+import { shippingAddressService } from "./shipping-address.service.js";
+import { paymentService } from "./payment.service.js";
+
 
 //TODO: create error catcher
 class UserService {
@@ -49,7 +52,17 @@ class UserService {
             throw new GraphQLError('Does not exist');
         }
 
-        return user;
+
+        const [shippingAddresses, payments] = await Promise.all([shippingAddressService.getList(id), paymentService.getList(id)]);
+        return {
+            email: user.email,
+            name: user.name,
+            id,
+            shippingAddresses,
+            addressesCount: shippingAddresses.length,
+            payments,
+            paymentsCount: payments.length
+        };
     }
 }
 
