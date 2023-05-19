@@ -7,8 +7,6 @@ import { UserDto } from '../dto/user.dto.js';
 import { shippingAddressService } from "./shipping-address.service.js";
 import { paymentService } from "./payment.service.js";
 
-
-//TODO: create error catcher
 class UserService {
     register = async (email, password, name) => {
         const candidate = await UserModel.findOne({ email });

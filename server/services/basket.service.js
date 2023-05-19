@@ -18,7 +18,7 @@ class BasketService {
             throw new GraphQLError('Does not exist');
         }
 
-        const basket = await BasketModel.findOneAndUpdate({ userId }, { userId }, { new: true, upsert: true, });
+        const basket = await BasketModel.findOneAndUpdate({ userId, status: 'Free' }, { userId }, { new: true, upsert: true, });
         await basketItemService.createItem(basket._id, furnitureId, quantity);
 
         return basket._id;

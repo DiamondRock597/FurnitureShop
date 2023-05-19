@@ -3,9 +3,9 @@ import { Alert } from 'react-native';
 import { Control, useForm, UseFormReturn } from 'react-hook-form';
 import { useMutation } from '@apollo/client';
 import { NavigationProp, useNavigation } from '@react-navigation/native';
+import { MainStackParamList, Routes } from '@navigation/routes';
 
 import { REGISTER } from '@graphql/user/mutations';
-import { MainStackParamList, Routes } from '@navigation/routes';
 import { tokenRepository } from 'repositories/TokenRepository';
 import { RegisterPayload } from '@models/user/register_payload';
 import { AuthResponse } from '@models/user/auth_response';

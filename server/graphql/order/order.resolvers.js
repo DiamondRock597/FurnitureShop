@@ -4,7 +4,7 @@ import { orderService } from "../../services/order.service.js";
 
 export const orderResolvers = {
     Query: {
-        getList: async (root, args, { isAuth, userId }) => {
+        orders: async (root, args, { isAuth, userId }) => {
             try {
                 if (!isAuth) {
                     throw new GraphQLError('User is not authinticated');
