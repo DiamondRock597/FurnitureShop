@@ -2,7 +2,7 @@ import React from 'react';
 import { NavigationProp, useNavigation } from '@react-navigation/native';
 import { View, Image, Text, TouchableOpacity } from 'react-native';
 
-import { AppStackParamList, Routes } from 'navigation/routes';
+import { AppStackParamList, Routes } from 'configs/navigation/routes';
 
 import { style } from './style';
 

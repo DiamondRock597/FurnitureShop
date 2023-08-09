@@ -1,7 +1,7 @@
 import { StyleSheet } from 'react-native';
 
-import { Colors } from '@constants/colors';
-import { Fonts } from '@constants/fonts';
+import { Colors } from 'common/constants/colors';
+import { Fonts } from 'common/constants/fonts';
 
 const ICON_SIZE = 24;
 

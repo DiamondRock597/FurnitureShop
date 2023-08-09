@@ -31,18 +31,16 @@
     "baseUrl": "./",                                  /* Specify the base directory to resolve non-relative module names. */
     "paths": {
       "*": ["src/*"],
-      "@components/*": ["src/components/*"],
+      "@components/*": ["src/common/components/*"],
       "@assets/*": ["src/assets/*"],
-      "@navigation/*": ["src/navigation/*"],
-      "@contstants/*": ["src/constants/*"],
-      "@graphql/*": ["src/graphql/*"],
+      "@navigation/*": ["src/configs/navigation/*"],
+      "@contstants/*": ["src/common/constants/*"],
+      "@graphql/*": ["src/configs/graphql/*"],
       "@models/*": ["src/models/*"],
-      "@repositories/*": ["src/repositories/*"],
-      "@providers/*": ["src/providers/*"],
-      "@hooks/*": ["src/hooks/*"],
+      "@repositories/*": ["src/configs/repositories/*"],
       "@features/*": ["src/features/*"],
-      "@constants/*": ["src/constants/*"],
-      "@configs/*": ["src/configs/*"],
+      "@constants/*": ["src/common/constants/*"],
+      "@utils/*": ["src/utils/*"]
     },                                      /* Specify a set of entries that re-map imports to additional lookup locations. */
     // "rootDirs": [],                                   /* Allow multiple folders to be treated as one when resolving modules. */
     // "typeRoots": [],                                  /* Specify multiple folders that act like `./node_modules/@types`. */

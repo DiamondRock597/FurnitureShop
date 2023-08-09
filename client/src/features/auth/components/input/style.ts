@@ -1,7 +1,7 @@
-import { Fonts } from 'constants/fonts';
+import { Fonts } from 'common/constants/fonts';
 import { StyleSheet } from 'react-native';
 
-import { Colors } from '@constants/colors';
+import { Colors } from 'common/constants/colors';
 
 export const styles = StyleSheet.create({
   name: {

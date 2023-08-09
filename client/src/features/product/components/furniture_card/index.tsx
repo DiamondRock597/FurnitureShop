@@ -1,6 +1,6 @@
 import React from 'react';
 import { NavigationProp, useNavigation } from '@react-navigation/native';
-import { AppStackParamList, Routes } from 'navigation/routes';
+import { AppStackParamList, Routes } from 'configs/navigation/routes';
 import { Image, Text, TouchableOpacity } from 'react-native';
 
 import { style } from './style';

@@ -1,6 +1,6 @@
 import { StyleSheet } from 'react-native';
 
-import { Colors } from '@constants/colors';
+import { Colors } from 'common/constants/colors';
 
 export const style = StyleSheet.create({
   imageContainer: {
