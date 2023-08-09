@@ -35,15 +35,15 @@ export const CheckoutScreen = () => {
       <View style={styles.orderContainer}>
         <View style={styles.totalContainer}>
           <Text style={styles.title}>Order: </Text>
-          <Text style={styles.price}>$ 95.00</Text>
+          <Text style={styles.price}>$ 50.00</Text>
         </View>
         <View style={styles.totalContainer}>
           <Text style={styles.title}>Delievery: </Text>
-          <Text style={styles.price}>$ 95.00</Text>
+          <Text style={styles.price}>$ 2.00</Text>
         </View>
         <View style={styles.totalContainer}>
           <Text style={styles.title}>Total: </Text>
-          <Text style={[styles.price, styles.totalValue]}>$ 95.00</Text>
+          <Text style={[styles.price, styles.totalValue]}>$ 52.00</Text>
         </View>
       </View>
       <Button onPress={navigateToSuccessfulOrder} text="SUBMIT ORDER" roundedType={RoundedType.Medium} />

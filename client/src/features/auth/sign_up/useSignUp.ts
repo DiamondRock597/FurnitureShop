@@ -46,7 +46,7 @@ export const useSignUp: () => UseSignUpReturn = () => {
     const errorMessage = registerData.error?.message;
 
     if (errorMessage) {
-      Alert.alert('Error', errorMessage);
+      Alert.alert('Ups!', errorMessage);
       return;
     }
 
@@ -59,7 +59,7 @@ export const useSignUp: () => UseSignUpReturn = () => {
   const handleRegister = useCallback(
     (data: FormTypes) => {
       if (data.confirmation !== data.password) {
-        setError(FormValues.Confirmation, { message: 'Password is not similar' });
+        setError(FormValues.Confirmation, { message: 'Passwords are not similar' });
         return;
       }
 

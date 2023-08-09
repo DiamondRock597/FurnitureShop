@@ -12,6 +12,7 @@ export const styles = StyleSheet.create({
   },
   container: {
     width: '100%',
+    marginVertical: 15,
   },
   input: {
     paddingVertical: 10,
@@ -22,7 +23,6 @@ export const styles = StyleSheet.create({
     borderBottomColor: '#E0E0E0',
   },
   error: {
-    paddingTop: 4,
     fontSize: 12,
     textAlign: 'center',
     fontFamily: Fonts.NunitoLight,

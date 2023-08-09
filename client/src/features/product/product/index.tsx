@@ -40,9 +40,9 @@ export const ProductScreen = () => {
         </ScrollView>
       </View>
       <View style={styles.buttonContainer}>
-        <TouchableOpacity style={styles.favouriteContainer}>
+        {/* <TouchableOpacity style={styles.favouriteContainer}>
           <Image style={styles.favouriteIcon} source={require('@assets/images/active_favourite.png')} />
-        </TouchableOpacity>
+        </TouchableOpacity> */}
         <Button style={styles.addingButton} text="Add to cart" roundedType={RoundedType.Medium} />
       </View>
     </View>

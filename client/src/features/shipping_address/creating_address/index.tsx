@@ -13,7 +13,7 @@ export const CreateAddressScreen = () => {
   const { control, loading, onSubmit } = useCreateAddress();
   return (
     <ScreenWrapper>
-      <KeyboardAwareScrollView contentContainerStyle={styles.contentContainer} style={styles.container}>
+      <KeyboardAwareScrollView enableOnAndroid contentContainerStyle={styles.contentContainer} style={styles.container}>
         <Controller
           control={control}
           name={FormValues.Name}

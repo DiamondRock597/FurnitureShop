@@ -16,7 +16,7 @@ export const CreatePaymentScreen = () => {
 
   return (
     <ScreenWrapper>
-      <KeyboardAwareScrollView style={styles.scrollContainer} contentContainerStyle={styles.listContent}>
+      <KeyboardAwareScrollView enableOnAndroid style={styles.scrollContainer} contentContainerStyle={styles.listContent}>
         <PaymentCard />
         <Controller
           control={control}

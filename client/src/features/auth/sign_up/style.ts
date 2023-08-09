@@ -43,10 +43,11 @@ export const style = StyleSheet.create({
     textAlign: 'center',
     fontSize: 14,
     textTransform: 'uppercase',
+    marginHorizontal: 5,
   },
   navigationButton: {
     flexDirection: 'row',
-    justifyContent: 'space-around',
+    justifyContent: 'space-between',
     width: '60%',
   },
 });

@@ -5,7 +5,9 @@ import { Colors } from 'constants/colors';
 
 export const styles = StyleSheet.create({
   container: {
-    height: '70%',
+    // height: '70%',
+    flex: 1,
+    paddingTop: 20,
   },
   title: {
     fontSize: 18,

@@ -15,7 +15,11 @@ export const AuthScreen: React.FC = () => {
   const scroll = useRef<ScrollView>(null);
 
   const changeAuthScreen = useCallback(() => {
-    scroll.current?.scrollTo({ x: isSignScreen ? START_POSITION : width, animated: true });
+    // if (isSignScreen) {
+    //   return;
+    // }
+
+    scroll.current?.scrollTo({ x: !isSignScreen ? START_POSITION : width, animated: true });
     setIsSignScreen(!isSignScreen);
   }, [setIsSignScreen, isSignScreen, width]);
 

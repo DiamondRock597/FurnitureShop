@@ -10,16 +10,16 @@ export const styles = StyleSheet.create({
     borderRadius: 4,
     borderColor: '#DBDBDB',
     borderWidth: 1,
-    paddingVertical: 10,
+    paddingVertical: 3,
     paddingHorizontal: 16,
     backgroundColor: Colors.Primary,
+    marginVertical: 4,
   },
   title: {
     fontFamily: Fonts.NunitoRegular,
     fontSize: 12,
     lineHeight: 16,
     color: Colors.SecondaryGrey,
-    paddingBottom: 8,
   },
   text: {
     fontFamily: Fonts.NunitoSemiBold,

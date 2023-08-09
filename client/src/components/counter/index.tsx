@@ -8,7 +8,7 @@ export const Counter = () => (
     <TouchableOpacity style={styles.button}>
       <Image style={styles.plusIcon} source={require('@assets/images/plus.png')} />
     </TouchableOpacity>
-    <Text style={styles.value}>01</Text>
+    <Text style={styles.value}>02</Text>
     <TouchableOpacity style={styles.button}>
       <Image style={styles.minusIcon} source={require('@assets/images/minus.png')} />
     </TouchableOpacity>

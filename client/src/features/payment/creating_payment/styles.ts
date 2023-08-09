@@ -6,7 +6,7 @@ export const styles = StyleSheet.create({
   },
   listContent: {
     justifyContent: 'space-between',
-    height: '70%',
+    // height: '70%',
   },
   infoContainer: {
     flexDirection: 'row',

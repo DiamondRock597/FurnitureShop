@@ -16,11 +16,11 @@ export const CartScreen = () => {
 
   return (
     <ScreenWrapper>
-      <FlatList data={[1, 2]} renderItem={({ item }) => <CartItem />} />
+      <FlatList data={[1]} renderItem={({ item }) => <CartItem />} />
       <View>
         <View style={styles.totalContainer}>
           <Text style={styles.totalTitle}>Total:</Text>
-          <Text style={styles.totalValue}>$95.00</Text>
+          <Text style={styles.totalValue}>$50.00</Text>
         </View>
         <Button onPress={navigateToCheckout} text="Check out" roundedType={RoundedType.Medium} />
       </View>

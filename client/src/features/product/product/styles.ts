@@ -86,6 +86,6 @@ export const styles = StyleSheet.create({
     backgroundColor: Colors.SecondaryGreyLight,
   },
   addingButton: {
-    width: '80%',
+    // width: '80%',
   },
 });

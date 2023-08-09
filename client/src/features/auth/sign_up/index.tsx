@@ -7,6 +7,7 @@ import { Button, RoundedType } from '@components/button';
 import { AuthInput } from 'features/auth/components/input';
 
 import { style } from './style';
+import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
 
 interface Props {
   goToSignIn: () => void;
@@ -27,7 +28,7 @@ export const SignUp: React.FC<Props> = ({ goToSignIn }: Props) => {
   const { control, onSubmit }: UseSignUpReturn = useSignUp();
 
   return (
-    <View style={style.container}>
+    <KeyboardAwareScrollView enableOnAndroid contentContainerStyle={style.container}>
       <Controller
         control={control}
         name={FormValues.Name}
@@ -67,6 +68,6 @@ export const SignUp: React.FC<Props> = ({ goToSignIn }: Props) => {
         <Text style={style.question}>Already have account?</Text>
         <Text style={style.authType}>Sign in</Text>
       </TouchableOpacity>
-    </View>
+    </KeyboardAwareScrollView>
   );
 };
