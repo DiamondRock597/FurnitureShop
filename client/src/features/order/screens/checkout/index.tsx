@@ -2,8 +2,8 @@ import React from 'react';
 import { View, Text, Image } from 'react-native';
 import { NavigationProp, useNavigation } from '@react-navigation/native';
 
-import { Button, RoundedType } from 'components/button';
-import { ScreenWrapper } from 'components/screen_wrapper';
+import { Button, RoundedType } from 'common/components/button';
+import { ScreenWrapper } from 'common/components/screen_wrapper';
 import { AddressItem } from 'features/profile/components/address_item';
 import { AppStackParamList, Routes } from 'configs/navigation/routes';
 

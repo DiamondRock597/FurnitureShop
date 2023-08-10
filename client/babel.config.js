@@ -15,6 +15,7 @@ module.exports = {
           '@models': './src/models',
           '@features': './src/features',
           '@utils': './src/common/utills',
+          // '@common': './src/common/components',
         },
       },
     ],

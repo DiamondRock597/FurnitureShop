@@ -3,10 +3,10 @@ import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view
 import { View } from 'react-native';
 import { Controller } from 'react-hook-form';
 
-import { ScreenWrapper } from 'components/screen_wrapper';
+import { ScreenWrapper } from 'common/components/screen_wrapper';
 import { PaymentCard } from '../../components/payment_card';
-import { Input } from 'components/input';
-import { Button } from 'components/button';
+import { Input } from 'common/components/input';
+import { Button } from 'common/components/button';
 import { FormValues, usePayment } from './usePayment';
 
 import { styles } from './styles';

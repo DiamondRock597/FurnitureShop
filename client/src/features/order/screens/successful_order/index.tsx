@@ -2,7 +2,7 @@ import { NavigationProp, useNavigation } from '@react-navigation/native';
 import React from 'react';
 import { View, Text, StatusBar, ImageBackground, Image } from 'react-native';
 
-import { TransparentButton } from 'components/transparent_button';
+import { TransparentButton } from 'common/components/transparent_button';
 import { AppStackParamList, Routes } from 'configs/navigation/routes';
 
 import { styles } from './styles';

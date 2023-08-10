@@ -4,7 +4,7 @@ import { useNavigation } from '@react-navigation/native';
 import { Alert } from 'react-native';
 import { useForm, UseFormReturn } from 'react-hook-form';
 
-import { CREATE_PAYMENT_METHOD } from 'graphql/payments/mutations';
+import { CREATE_PAYMENT_METHOD } from '../../graphql/mutations';
 
 export enum FormValues {
   HolderName = 'holderName',

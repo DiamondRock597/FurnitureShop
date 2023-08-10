@@ -4,7 +4,7 @@ import { Alert } from 'react-native';
 import { Control, useForm, UseFormReturn } from 'react-hook-form';
 import { useNavigation } from '@react-navigation/native';
 
-import { CREATE_SHIPPING_ADDRESS } from 'graphql/shipping_address/mutations';
+import { CREATE_SHIPPING_ADDRESS } from '../../graphql/mutations';
 
 export enum FormValues {
   Name = 'name',

@@ -2,8 +2,8 @@ import React from 'react';
 import { Text } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 
-import { BackButton } from 'components/back_button';
-import { LogoutButton } from 'components/logout_button';
+import { BackButton } from 'common/components/back_button';
+import { LogoutButton } from 'common/components/logout_button';
 
 import { styles } from './styles';
 

@@ -3,11 +3,11 @@ import { Image, StatusBar, View, Text, ScrollView } from 'react-native';
 import { RouteProp, useRoute } from '@react-navigation/native';
 import { useQuery } from '@apollo/client';
 
-import { BackButton } from 'components/back_button';
-import { Button, RoundedType } from 'components/button';
-import { Counter } from 'components/counter';
+import { BackButton } from 'common/components/back_button';
+import { Button, RoundedType } from 'common/components/button';
+import { Counter } from 'common/components/counter';
 import { AppStackParamList, Routes } from 'configs/navigation/routes';
-import { FullPageLoader } from 'components/full_page_loader';
+import { FullPageLoader } from 'common/components/full_page_loader';
 import { GET_FURNITURE } from '../../graphql/queries';
 
 import { styles } from './styles';

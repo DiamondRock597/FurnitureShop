@@ -3,13 +3,13 @@ import { NavigationProp, useNavigation } from '@react-navigation/native';
 import { useMutation, useQuery } from '@apollo/client';
 import { FlatList } from 'react-native';
 
-import { ScreenWrapper } from 'components/screen_wrapper';
-import { FloatingButton } from 'components/floating_button';
+import { ScreenWrapper } from 'common/components/screen_wrapper';
+import { FloatingButton } from 'common/components/floating_button';
 import { AddressItem } from '../components/address_item';
 import { AppStackParamList, Routes } from 'configs/navigation/routes';
-import { GET_SHIPPING_ADDRESSES } from 'graphql/user/queries';
 import { ShippingAddress } from 'models/shipping_address/shipping_address';
-import { UPDATE_SHIPPING_ADDRESS } from 'graphql/shipping_address/mutations';
+import { GET_SHIPPING_ADDRESSES } from '../graphql/queries';
+import { UPDATE_SHIPPING_ADDRESS } from '../graphql/mutations';
 
 export const AddressScreen = () => {
   const { data, loading, refetch } = useQuery<{ profile: { shippingAddresses: Array<ShippingAddress> } }>(GET_SHIPPING_ADDRESSES, {

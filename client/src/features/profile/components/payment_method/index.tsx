@@ -1,7 +1,7 @@
 import React from 'react';
 import { View } from 'react-native';
 
-import { CheckboxController } from 'components/checkbox_controller';
+import { CheckboxController } from 'common/components/checkbox_controller';
 import { PaymentCard } from '../payment_card';
 import { PaymentMethod as Payment } from 'models/payment_method';
 

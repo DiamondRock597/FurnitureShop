@@ -2,12 +2,12 @@ import React from 'react';
 import { Controller } from 'react-hook-form';
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
 
-import { ScreenWrapper } from 'components/screen_wrapper';
-import { Input } from 'components/input';
+import { ScreenWrapper } from 'common/components/screen_wrapper';
+import { Input } from 'common/components/input';
 import { FormValues, useCreateAddress } from './useCreateAddress';
 
 import { styles } from './styles';
-import { Button } from 'components/button';
+import { Button } from 'common/components/button';
 
 export const CreateAddressScreen = () => {
   const { control, loading, onSubmit } = useCreateAddress();

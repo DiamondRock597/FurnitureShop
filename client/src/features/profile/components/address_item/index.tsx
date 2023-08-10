@@ -2,7 +2,7 @@ import React from 'react';
 import { Text, View } from 'react-native';
 
 import { ShippingAddress } from 'models/shipping_address/shipping_address';
-import { CheckboxController } from 'components/checkbox_controller';
+import { CheckboxController } from 'common/components/checkbox_controller';
 
 import { styles } from './styles';
 

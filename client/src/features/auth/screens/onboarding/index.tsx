@@ -2,7 +2,7 @@ import React, { useCallback } from 'react';
 import { View, ImageBackground, Text } from 'react-native';
 import { useNavigation, NavigationProp } from '@react-navigation/native';
 
-import { Button, RoundedType } from 'components/button';
+import { Button, RoundedType } from 'common/components/button';
 import { MainStackParamList, Routes } from 'configs/navigation/routes';
 import { Fonts } from 'common/constants/fonts';
 

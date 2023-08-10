@@ -1,5 +1,6 @@
 import React from 'react';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import { useReactiveVar } from '@apollo/client';
 
 import { Onboarding } from 'features/auth/screens/onboarding';
 import { AuthScreen } from 'features/auth/screens/Auth.screen';
@@ -8,14 +9,13 @@ import { CreateAddressScreen } from 'features/profile/screens/creating_address';
 import { PaymentMethodScreen } from 'features/profile/screens/PaymentMethodList.screen';
 import { TabNavigator } from './MainNavigator';
 import { AppStackParamList, Routes } from './routes';
-import { Header } from 'components/header';
+import { Header } from 'common/components//header';
 import { CreatePaymentScreen } from 'features/profile/screens/creating_payment';
 import { ProductScreen } from 'features/product/screens/product';
 import { CartScreen } from 'features/order/screens/cart';
 import { routeNames } from 'common/constants/route_names';
-import { CheckoutScreen } from 'features/order/checkout';
+import { CheckoutScreen } from 'features/order/screens/checkout';
 import { SuccessfulOrderScreen } from 'features/order/screens/successful_order';
-import { useReactiveVar } from '@apollo/client';
 import { authTokenVar } from 'configs/graphql/client';
 
 const Stack = createNativeStackNavigator<AppStackParamList>();
