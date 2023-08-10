@@ -10,7 +10,7 @@ const WIDTH_RATIO = 0.9;
 export const style = StyleSheet.create({
   container: {
     width: width * WIDTH_RATIO,
-    height: '90%',
+    height: '85%',
     justifyContent: 'space-around',
     alignItems: 'center',
     paddingHorizontal: 15,
@@ -23,10 +23,10 @@ export const style = StyleSheet.create({
     },
     shadowOpacity: 0.18,
     shadowRadius: 1.0,
-    elevation: 1,
   },
   button: {
     width: '90%',
+    height: '34%',
     paddingVertical: 30,
   },
   question: {
@@ -49,5 +49,9 @@ export const style = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-between',
     width: '60%',
+  },
+  scrollContainer: {
+    flexGrow: 1,
+    justifyContent: 'center',
   },
 });

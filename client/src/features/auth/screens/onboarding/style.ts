@@ -49,5 +49,6 @@ export const style = StyleSheet.create({
   },
   buttonContainer: {
     width: '45%',
+    height: '30%',
   },
 });

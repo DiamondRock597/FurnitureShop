@@ -27,7 +27,14 @@ export const AuthScreen: React.FC = () => {
     <ScreenWrapper>
       <Header />
       <Title isShowGreeting={isSignScreen} />
-      <ScrollView ref={scroll} horizontal scrollEnabled={false} keyboardShouldPersistTaps="handled" showsHorizontalScrollIndicator={false}>
+      <ScrollView
+        ref={scroll}
+        horizontal
+        scrollEnabled={false}
+        nestedScrollEnabled
+        keyboardShouldPersistTaps="handled"
+        showsHorizontalScrollIndicator={false}
+      >
         <SignIn goToSignUp={changeAuthScreen} />
         <SignUp goToSignIn={changeAuthScreen} />
       </ScrollView>

@@ -5,7 +5,7 @@ import { Fonts } from 'common/constants/fonts';
 
 export const style = StyleSheet.create({
   container: {
-    paddingVertical: 30,
+    paddingVertical: 20,
     paddingHorizontal: 15,
   },
   greeting: {

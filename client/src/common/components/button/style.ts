@@ -7,7 +7,8 @@ export const styles = StyleSheet.create({
   container: {
     justifyContent: 'center',
     alignItems: 'center',
-    paddingVertical: 15,
+    // paddingVertical: 15,
+    height: '80%',
     width: '100%',
     backgroundColor: Colors.SecondaryBlackBold,
     shadowColor: 'rgba(48, 48, 48, 0.3)',

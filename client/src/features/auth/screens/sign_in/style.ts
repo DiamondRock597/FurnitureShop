@@ -10,7 +10,7 @@ export const style = StyleSheet.create({
   container: {
     width: width * WIDTH_RATIO,
     height: '75%',
-    justifyContent: 'space-around',
+    justifyContent: 'space-between',
     alignItems: 'center',
     paddingHorizontal: 15,
     paddingVertical: 30,
@@ -22,11 +22,14 @@ export const style = StyleSheet.create({
     },
     shadowOpacity: 0.18,
     shadowRadius: 1.0,
-    elevation: 1,
   },
   button: {
     width: '90%',
     height: '25%',
     justifyContent: 'space-between',
+  },
+  scrollContainer: {
+    flexGrow: 1,
+    justifyContent: 'center',
   },
 });

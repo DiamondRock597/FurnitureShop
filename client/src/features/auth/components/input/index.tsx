@@ -9,9 +9,9 @@ interface Props extends TextInputProps {
 }
 
 export const AuthInput: React.FC<Props> = ({ name, style, error, ...props }: Props) => (
-  <View style={styles.container}>
-    <View style={[!error && styles.inputContainer]}>
-      <Text style={styles.name}>{name}</Text>
+  <View>
+    <Text style={styles.name}>{name}</Text>
+    <View style={styles.inputContainer}>
       <TextInput style={[styles.input, style]} {...props} />
     </View>
     <Text style={styles.error}>{error}</Text>
