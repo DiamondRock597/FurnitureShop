@@ -5,14 +5,14 @@ import { NavigationProp, useNavigation } from '@react-navigation/native';
 import { Button, RoundedType } from 'common/components/button';
 import { ScreenWrapper } from 'common/components/screen_wrapper';
 import { CartItem } from '../../components/cart_item';
-import { AppStackParamList, Routes } from 'configs/navigation/routes';
+import { AppStackParamList, MainStackRoutes } from 'configs/navigation/routes';
 
 import { styles } from './styles';
 
 export const CartScreen = () => {
   const navigation = useNavigation<NavigationProp<AppStackParamList>>();
 
-  const navigateToCheckout = () => navigation.navigate(Routes.Checkout);
+  const navigateToCheckout = () => navigation.navigate(MainStackRoutes.Checkout);
 
   return (
     <ScreenWrapper>

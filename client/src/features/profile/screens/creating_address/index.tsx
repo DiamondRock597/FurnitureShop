@@ -5,9 +5,9 @@ import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view
 import { ScreenWrapper } from 'common/components/screen_wrapper';
 import { Input } from 'common/components/input';
 import { FormValues, useCreateAddress } from './useCreateAddress';
+import { Button } from 'common/components/button';
 
 import { styles } from './styles';
-import { Button } from 'common/components/button';
 
 export const CreateAddressScreen = () => {
   const { control, loading, onSubmit } = useCreateAddress();

@@ -2,11 +2,10 @@ import { StyleSheet } from 'react-native';
 
 export const styles = StyleSheet.create({
   scrollContainer: {
-    flex: 1,
+    flexGrow: 1,
   },
   listContent: {
     justifyContent: 'space-between',
-    // height: '70%',
   },
   infoContainer: {
     flexDirection: 'row',
@@ -14,5 +13,8 @@ export const styles = StyleSheet.create({
   },
   shortInputContainer: {
     width: '45%',
+  },
+  button: {
+    height: '12%',
   },
 });

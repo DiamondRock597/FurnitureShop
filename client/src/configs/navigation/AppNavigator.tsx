@@ -8,7 +8,7 @@ import { AddressScreen } from 'features/profile/screens/AddressList.screen';
 import { CreateAddressScreen } from 'features/profile/screens/creating_address';
 import { PaymentMethodScreen } from 'features/profile/screens/PaymentMethodList.screen';
 import { TabNavigator } from './MainNavigator';
-import { AppStackParamList, Routes } from './routes';
+import { AppStackParamList, MainStackRoutes, MainTabRoutes } from './routes';
 import { Header } from 'common/components//header';
 import { CreatePaymentScreen } from 'features/profile/screens/creating_payment';
 import { ProductScreen } from 'features/product/screens/product';
@@ -21,13 +21,15 @@ import { authTokenVar } from 'configs/graphql/client';
 const Stack = createNativeStackNavigator<AppStackParamList>();
 
 const routesWithHeader = [
-  Routes.ShippingAddress,
-  Routes.AddShippingAddress,
-  Routes.PaymentMethod,
-  Routes.AddPaymentMethod,
-  Routes.Cart,
-  Routes.Checkout,
+  MainStackRoutes.ShippingAddress,
+  MainStackRoutes.AddShippingAddress,
+  MainStackRoutes.PaymentMethod,
+  MainStackRoutes.AddPaymentMethod,
+  MainStackRoutes.Cart,
+  MainStackRoutes.Checkout,
 ];
+
+// const isMainRoute = (route: string): route is MainStackRoutes => Object.values(MainStackRoutes).includes(route as MainStackRoutes);
 
 export const AppNavigator = () => {
   const token = useReactiveVar(authTokenVar);
@@ -40,21 +42,21 @@ export const AppNavigator = () => {
           return isRouteInList ? <Header name={routeNames[route.name]} isBasketVisible={isRouteInList} isBackButtonVisible={isRouteInList} /> : null;
         },
       }}
-      initialRouteName={token ? Routes.TabNavigator : Routes.Onboarding}
+      initialRouteName={token ? MainStackRoutes.TabNavigator : MainStackRoutes.Onboarding}
     >
-      <Stack.Screen component={Onboarding} name={Routes.Onboarding} />
-      <Stack.Screen component={AuthScreen} name={Routes.Auth} />
-      <Stack.Screen component={TabNavigator} name={Routes.TabNavigator} />
-      <Stack.Screen component={AddressScreen} name={Routes.ShippingAddress} />
-      <Stack.Screen component={CreateAddressScreen} name={Routes.AddShippingAddress} />
+      <Stack.Screen component={Onboarding} name={MainStackRoutes.Onboarding} />
+      <Stack.Screen component={AuthScreen} name={MainStackRoutes.Auth} />
+      <Stack.Screen component={TabNavigator} name={MainStackRoutes.TabNavigator} />
+      <Stack.Screen component={AddressScreen} name={MainStackRoutes.ShippingAddress} />
+      <Stack.Screen component={CreateAddressScreen} name={MainStackRoutes.AddShippingAddress} />
 
-      <Stack.Screen component={PaymentMethodScreen} name={Routes.PaymentMethod} />
-      <Stack.Screen component={CreatePaymentScreen} name={Routes.AddPaymentMethod} />
+      <Stack.Screen component={PaymentMethodScreen} name={MainStackRoutes.PaymentMethod} />
+      <Stack.Screen component={CreatePaymentScreen} name={MainStackRoutes.AddPaymentMethod} />
 
-      <Stack.Screen component={ProductScreen} name={Routes.Product} />
-      <Stack.Screen component={CartScreen} name={Routes.Cart} />
-      <Stack.Screen component={CheckoutScreen} name={Routes.Checkout} />
-      <Stack.Screen component={SuccessfulOrderScreen} name={Routes.SuccessfulOrder} />
+      <Stack.Screen component={ProductScreen} name={MainStackRoutes.Product} />
+      <Stack.Screen component={CartScreen} name={MainStackRoutes.Cart} />
+      <Stack.Screen component={CheckoutScreen} name={MainStackRoutes.Checkout} />
+      <Stack.Screen component={SuccessfulOrderScreen} name={MainStackRoutes.SuccessfulOrder} />
     </Stack.Navigator>
   );
 };

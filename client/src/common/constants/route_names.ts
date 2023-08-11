@@ -1,12 +1,12 @@
-import { Routes } from 'configs/navigation/routes';
+import { MainStackRoutes, MainTabRoutes } from 'configs/navigation/routes';
 
 export const routeNames = {
-  [Routes.Cart]: 'My cart',
-  [Routes.AddPaymentMethod]: 'Add payment method',
-  [Routes.Checkout]: 'Check out',
-  [Routes.SuccessfulOrder]: '',
-  [Routes.ShippingAddress]: 'Shipping address',
-  [Routes.PaymentMethod]: 'Payment method',
-  [Routes.Profile]: 'Profile',
-  [Routes.AddShippingAddress]: 'Add shipping address',
+  [MainStackRoutes.Cart]: 'My cart',
+  [MainStackRoutes.AddPaymentMethod]: 'Add payment method',
+  [MainStackRoutes.Checkout]: 'Check out',
+  [MainStackRoutes.SuccessfulOrder]: '',
+  [MainStackRoutes.ShippingAddress]: 'Shipping address',
+  [MainStackRoutes.PaymentMethod]: 'Payment method',
+  [MainTabRoutes.Profile]: 'Profile',
+  [MainStackRoutes.AddShippingAddress]: 'Add shipping address',
 };

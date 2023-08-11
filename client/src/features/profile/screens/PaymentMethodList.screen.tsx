@@ -6,7 +6,7 @@ import { useMutation, useQuery } from '@apollo/client';
 import { ScreenWrapper } from 'common/components/screen_wrapper';
 import { FloatingButton } from 'common/components/floating_button';
 import { PaymentMethod } from '../components/payment_method';
-import { AppStackParamList, Routes } from 'configs/navigation/routes';
+import { AppStackParamList, MainStackRoutes } from 'configs/navigation/routes';
 import { PaymentMethod as PaymentMethodType } from 'models/payment_method';
 import { GET_PAYMENTS } from '../graphql/queries';
 import { UPDATE_PAYMENT_METHOD } from '../graphql/mutations';
@@ -15,7 +15,7 @@ export const PaymentMethodScreen = () => {
   const { data, loading, refetch } = useQuery<{ profile: { payments: Array<PaymentMethodType> } }>(GET_PAYMENTS);
   const [updatePaymentMethod, mutation] = useMutation(UPDATE_PAYMENT_METHOD, { refetchQueries: [GET_PAYMENTS] });
   const navigation = useNavigation<NavigationProp<AppStackParamList>>();
-  const navigateToCreatePaymentMethod = () => navigation.navigate(Routes.AddPaymentMethod);
+  const navigateToCreatePaymentMethod = () => navigation.navigate(MainStackRoutes.AddPaymentMethod);
 
   const togglePaymentMethod = (id: string, isActive: boolean) => updatePaymentMethod({ variables: { id, input: { isActive } } });
 

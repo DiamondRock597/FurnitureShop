@@ -6,14 +6,14 @@ import { useQuery } from '@apollo/client';
 import { BackButton } from 'common/components/back_button';
 import { Button, RoundedType } from 'common/components/button';
 import { Counter } from 'common/components/counter';
-import { AppStackParamList, Routes } from 'configs/navigation/routes';
+import { AppStackParamList, MainStackRoutes } from 'configs/navigation/routes';
 import { FullPageLoader } from 'common/components/full_page_loader';
 import { GET_FURNITURE } from '../../graphql/queries';
 
 import { styles } from './styles';
 
 export const ProductScreen = () => {
-  const route = useRoute<RouteProp<AppStackParamList, Routes.Product>>();
+  const route = useRoute<RouteProp<AppStackParamList, MainStackRoutes.Product>>();
   const { data, loading } = useQuery(GET_FURNITURE, { variables: { id: route.params.productId } });
 
   if (loading) {

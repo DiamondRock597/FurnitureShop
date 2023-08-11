@@ -3,14 +3,14 @@ import React from 'react';
 import { View, Text, StatusBar, ImageBackground, Image } from 'react-native';
 
 import { TransparentButton } from 'common/components/transparent_button';
-import { AppStackParamList, Routes } from 'configs/navigation/routes';
+import { AppStackParamList, MainStackRoutes } from 'configs/navigation/routes';
 
 import { styles } from './styles';
 
 export const SuccessfulOrderScreen = () => {
   const navigation = useNavigation<NavigationProp<AppStackParamList>>();
 
-  const navigateToHome = () => navigation.navigate(Routes.TabNavigator, { screen: Routes.Home });
+  const navigateToHome = () => navigation.navigate(MainStackRoutes.TabNavigator, { screen: Routes.Home });
 
   return (
     <View style={styles.container}>

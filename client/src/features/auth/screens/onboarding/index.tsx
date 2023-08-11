@@ -3,15 +3,15 @@ import { View, ImageBackground, Text } from 'react-native';
 import { useNavigation, NavigationProp } from '@react-navigation/native';
 
 import { Button, RoundedType } from 'common/components/button';
-import { MainStackParamList, Routes } from 'configs/navigation/routes';
+import { MainStackRoutes, AppStackParamList } from 'configs/navigation/routes';
 import { Fonts } from 'common/constants/fonts';
 
 import { style } from './style';
 
 export const Onboarding: React.FC = () => {
-  const { reset }: NavigationProp<MainStackParamList> = useNavigation();
+  const { reset }: NavigationProp<AppStackParamList> = useNavigation();
 
-  const goToAuth = useCallback(() => reset({ index: 0, routes: [{ name: Routes.Auth }] }), [reset]);
+  const goToAuth = useCallback(() => reset({ index: 0, routes: [{ name: MainStackRoutes.Auth }] }), [reset]);
 
   return (
     <ImageBackground source={require('@assets/images/onboarding.png')} style={style.imageContainer}>

@@ -6,7 +6,7 @@ import { FlatList } from 'react-native';
 import { ScreenWrapper } from 'common/components/screen_wrapper';
 import { FloatingButton } from 'common/components/floating_button';
 import { AddressItem } from '../components/address_item';
-import { AppStackParamList, Routes } from 'configs/navigation/routes';
+import { AppStackParamList, MainStackRoutes } from 'configs/navigation/routes';
 import { ShippingAddress } from 'models/shipping_address/shipping_address';
 import { GET_SHIPPING_ADDRESSES } from '../graphql/queries';
 import { UPDATE_SHIPPING_ADDRESS } from '../graphql/mutations';
@@ -18,7 +18,7 @@ export const AddressScreen = () => {
   const [updateShippingAddress] = useMutation(UPDATE_SHIPPING_ADDRESS, { refetchQueries: [GET_SHIPPING_ADDRESSES] });
   const navigation = useNavigation<NavigationProp<AppStackParamList>>();
 
-  const navigateToCreatAddress = () => navigation.navigate(Routes.AddShippingAddress);
+  const navigateToCreatAddress = () => navigation.navigate(MainStackRoutes.AddShippingAddress);
   const toggleShippingAddress = (id: string, isActive: boolean) => updateShippingAddress({ variables: { input: { id, isActive } } });
 
   return (

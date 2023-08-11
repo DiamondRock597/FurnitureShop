@@ -3,7 +3,7 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 
 import { HomeScreen } from 'features/product/screens/home';
 import { ProfileScreen } from 'features/profile/screens/Profile.screen';
-import { MainTabParamList, Routes } from './routes';
+import { MainTabParamList, MainTabRoutes } from './routes';
 import { TabIcon } from 'common/components/tab_icon';
 import { Colors } from 'common/constants/colors';
 
@@ -19,7 +19,7 @@ export const TabNavigator = () => (
       headerShown: false,
     })}
   >
-    <BottomTab.Screen name={Routes.Home} component={HomeScreen} />
-    <BottomTab.Screen name={Routes.Profile} component={ProfileScreen} />
+    <BottomTab.Screen name={MainTabRoutes.Home} component={HomeScreen} />
+    <BottomTab.Screen name={MainTabRoutes.Profile} component={ProfileScreen} />
   </BottomTab.Navigator>
 );

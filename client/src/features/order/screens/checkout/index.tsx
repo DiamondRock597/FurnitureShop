@@ -5,14 +5,14 @@ import { NavigationProp, useNavigation } from '@react-navigation/native';
 import { Button, RoundedType } from 'common/components/button';
 import { ScreenWrapper } from 'common/components/screen_wrapper';
 import { AddressItem } from 'features/profile/components/address_item';
-import { AppStackParamList, Routes } from 'configs/navigation/routes';
+import { AppStackParamList, MainStackRoutes } from 'configs/navigation/routes';
 
 import { styles } from './styles';
 
 export const CheckoutScreen = () => {
   const navigation = useNavigation<NavigationProp<AppStackParamList>>();
 
-  const navigateToSuccessfulOrder = () => navigation.navigate(Routes.SuccessfulOrder);
+  const navigateToSuccessfulOrder = () => navigation.navigate(MainStackRoutes.SuccessfulOrder);
 
   return (
     <ScreenWrapper>
@@ -46,7 +46,9 @@ export const CheckoutScreen = () => {
           <Text style={[styles.price, styles.totalValue]}>$ 52.00</Text>
         </View>
       </View>
+      {/* <View style={{ height: '12%' }}> */}
       <Button onPress={navigateToSuccessfulOrder} text="SUBMIT ORDER" roundedType={RoundedType.Medium} />
+      {/* </View> */}
     </ScreenWrapper>
   );
 };

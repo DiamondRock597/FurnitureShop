@@ -1,12 +1,10 @@
 import { NavigatorScreenParams } from '@react-navigation/native';
 
-export enum Routes {
+export enum MainStackRoutes {
   Auth = 'Auth',
   TabNavigator = 'TabNavigator',
   Onboarding = 'Onboarding',
-  Home = 'Home',
   Favorites = 'Favorites',
-  Profile = 'Profile',
   ShippingAddress = 'ShippingAddress',
   AddShippingAddress = 'AddShippingAddress',
   PaymentMethod = 'PaymentMethod',
@@ -17,23 +15,28 @@ export enum Routes {
   SuccessfulOrder = 'SuccessfulOrder',
 }
 
+export enum MainTabRoutes {
+  Home = 'Home',
+  Profile = 'Profile',
+}
+
 export type AppStackParamList = {
-  [Routes.Auth]: undefined;
-  [Routes.TabNavigator]: NavigatorScreenParams<MainTabParamList>;
-  [Routes.Onboarding]: undefined;
-  [Routes.ShippingAddress]: undefined;
-  [Routes.AddShippingAddress]: undefined;
-  [Routes.PaymentMethod]: undefined;
-  [Routes.AddPaymentMethod]: undefined;
-  [Routes.Product]: {
+  [MainStackRoutes.Auth]: undefined;
+  [MainStackRoutes.TabNavigator]: NavigatorScreenParams<MainTabParamList>;
+  [MainStackRoutes.Onboarding]: undefined;
+  [MainStackRoutes.ShippingAddress]: undefined;
+  [MainStackRoutes.AddShippingAddress]: undefined;
+  [MainStackRoutes.PaymentMethod]: undefined;
+  [MainStackRoutes.AddPaymentMethod]: undefined;
+  [MainStackRoutes.Product]: {
     productId: string;
   };
-  [Routes.Cart]: undefined;
-  [Routes.Checkout]: undefined;
-  [Routes.SuccessfulOrder]: undefined;
+  [MainStackRoutes.Cart]: undefined;
+  [MainStackRoutes.Checkout]: undefined;
+  [MainStackRoutes.SuccessfulOrder]: undefined;
 };
 
 export type MainTabParamList = {
-  [Routes.Profile]: undefined;
-  [Routes.Home]: undefined;
+  [MainTabRoutes.Profile]: undefined;
+  [MainTabRoutes.Home]: undefined;
 };

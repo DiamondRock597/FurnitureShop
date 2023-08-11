@@ -3,7 +3,7 @@ import { ScrollView } from 'react-native';
 import { NavigationProp, useNavigation } from '@react-navigation/native';
 
 import { ProfileMenuItem } from './ProfileMenuItem';
-import { AppStackParamList, Routes } from 'configs/navigation/routes';
+import { AppStackParamList, MainStackRoutes } from 'configs/navigation/routes';
 
 import { styles } from './styles';
 
@@ -15,9 +15,9 @@ interface Props {
 export const ProfileMenu: React.FC<Props> = ({ addressesCount, paymentsCount }) => {
   const navigation = useNavigation<NavigationProp<AppStackParamList>>();
 
-  const navigateToAddresses = () => navigation.navigate(Routes.ShippingAddress);
+  const navigateToAddresses = () => navigation.navigate(MainStackRoutes.ShippingAddress);
 
-  const navigateToPaymentMethod = () => navigation.navigate(Routes.PaymentMethod);
+  const navigateToPaymentMethod = () => navigation.navigate(MainStackRoutes.PaymentMethod);
 
   return (
     <ScrollView style={styles.scrollContainer}>

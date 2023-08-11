@@ -1,14 +1,18 @@
-import { StyleSheet } from 'react-native';
+import { Dimensions, StyleSheet } from 'react-native';
 
 import { Colors } from 'common/constants/colors';
 import { Fonts } from 'common/constants/fonts';
+
+const { height } = Dimensions.get('window');
+
+const heightRatio = 0.08;
 
 export const styles = StyleSheet.create({
   container: {
     justifyContent: 'center',
     alignItems: 'center',
     // paddingVertical: 15,
-    height: '80%',
+    height: height * heightRatio,
     width: '100%',
     backgroundColor: Colors.SecondaryBlackBold,
     shadowColor: 'rgba(48, 48, 48, 0.3)',
