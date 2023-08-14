@@ -25,6 +25,17 @@ export const shippingAddressResolver = {
             } catch (error) {
                 return error;
             }
+        },
+        deleteShippingAddress: (root, { id }, {userId, isAuth}) => {
+            try {
+                if (!isAuth) {
+                    throw new GraphQLError('User is not authinticated');
+                }
+
+                return shippingAddressService.deleteAddress(userId, id)
+            } catch (error) {
+                return error;
+            }
         }
     }
 }

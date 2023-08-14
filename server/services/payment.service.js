@@ -25,6 +25,16 @@ class PaymentService {
         const payment = await PaymentModel.findByIdAndUpdate(id, input, { new: true });
         return payment._id;
     }
+
+    deletePaymentMethod = async (userId, id) => {
+        if (!userId) {
+            throw new GraphQLError('Does not exist');
+        }
+
+        await PaymentModel.findByIdAndDelete(id);
+
+        return id;
+    }
 }
 
 export const paymentService = new PaymentService();

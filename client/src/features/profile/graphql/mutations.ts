@@ -23,3 +23,15 @@ export const UPDATE_PAYMENT_METHOD = gql`
     updatePaymentMethod(id: $id, input: $input)
   }
 `;
+
+export const DELETE_PAYMENT_METHOD = gql`
+  mutation DeletePaymentMethod($id: ID) {
+    deletePaymentMethod(id: $id)
+  }
+`;
+
+export const DELETE_SHIPPING_ADDRESS = gql`
+  mutation DeleteShippingAddress($id: ID) {
+    deleteShippingAddress(id: $id)
+  }
+`;
