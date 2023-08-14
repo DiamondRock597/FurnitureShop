@@ -11,9 +11,9 @@
 		13B07FBC1A68108700A75B9A /* AppDelegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB01A68108700A75B9A /* AppDelegate.mm */; };
 		13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		13B07FC11A68108700A75B9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
-		41F82C0F139BE18E21574206 /* Pods_FurnitureShop_FurnitureShopTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EC108E9160EC076E804CC030 /* Pods_FurnitureShop_FurnitureShopTests.framework */; };
-		73A4A1D382F41693723F6C61 /* Pods_FurnitureShop.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 48C56C0B60C2271039722365 /* Pods_FurnitureShop.framework */; };
+		748F8DF97D53EFA9504EA11A /* libPods-FurnitureShop-FurnitureShopTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2D156EA251A26F29AC148271 /* libPods-FurnitureShop-FurnitureShopTests.a */; };
 		81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
+		CE67487B60C7A0713C29B7C2 /* libPods-FurnitureShop.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 01F354DE2225304512009131 /* libPods-FurnitureShop.a */; };
 		D74F214A284F91020094D2E1 /* NunitoSans-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D74F2146284F91010094D2E1 /* NunitoSans-Bold.ttf */; };
 		D74F214B284F91020094D2E1 /* NunitoSans-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D74F2147284F91010094D2E1 /* NunitoSans-SemiBold.ttf */; };
 		D74F214C284F91020094D2E1 /* NunitoSans-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D74F2148284F91010094D2E1 /* NunitoSans-Regular.ttf */; };
@@ -38,14 +38,15 @@
 		00E356EE1AD99517003FC87E /* FurnitureShopTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FurnitureShopTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		00E356F11AD99517003FC87E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		00E356F21AD99517003FC87E /* FurnitureShopTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FurnitureShopTests.m; sourceTree = "<group>"; };
+		01F354DE2225304512009131 /* libPods-FurnitureShop.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-FurnitureShop.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		13B07F961A680F5B00A75B9A /* FurnitureShop.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FurnitureShop.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		13B07FAF1A68108700A75B9A /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = FurnitureShop/AppDelegate.h; sourceTree = "<group>"; };
 		13B07FB01A68108700A75B9A /* AppDelegate.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = AppDelegate.mm; path = FurnitureShop/AppDelegate.mm; sourceTree = "<group>"; };
 		13B07FB51A68108700A75B9A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = FurnitureShop/Images.xcassets; sourceTree = "<group>"; };
 		13B07FB61A68108700A75B9A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = FurnitureShop/Info.plist; sourceTree = "<group>"; };
 		13B07FB71A68108700A75B9A /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = FurnitureShop/main.m; sourceTree = "<group>"; };
+		2D156EA251A26F29AC148271 /* libPods-FurnitureShop-FurnitureShopTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-FurnitureShop-FurnitureShopTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3B4392A12AC88292D35C810B /* Pods-FurnitureShop.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FurnitureShop.debug.xcconfig"; path = "Target Support Files/Pods-FurnitureShop/Pods-FurnitureShop.debug.xcconfig"; sourceTree = "<group>"; };
-		48C56C0B60C2271039722365 /* Pods_FurnitureShop.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FurnitureShop.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5709B34CF0A7D63546082F79 /* Pods-FurnitureShop.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FurnitureShop.release.xcconfig"; path = "Target Support Files/Pods-FurnitureShop/Pods-FurnitureShop.release.xcconfig"; sourceTree = "<group>"; };
 		5B7EB9410499542E8C5724F5 /* Pods-FurnitureShop-FurnitureShopTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FurnitureShop-FurnitureShopTests.debug.xcconfig"; path = "Target Support Files/Pods-FurnitureShop-FurnitureShopTests/Pods-FurnitureShop-FurnitureShopTests.debug.xcconfig"; sourceTree = "<group>"; };
 		81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = FurnitureShop/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -58,7 +59,6 @@
 		D791FCD3284FB31200B4B762 /* Gelasio-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Gelasio-SemiBold.ttf"; path = "../../../../furnitureshop/client/src/assets/fonts/Gelasio-SemiBold.ttf"; sourceTree = "<group>"; };
 		D791FCD4284FB31300B4B762 /* Gelasio-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Gelasio-Bold.ttf"; path = "../../../../furnitureshop/client/src/assets/fonts/Gelasio-Bold.ttf"; sourceTree = "<group>"; };
 		D791FCD5284FB31300B4B762 /* Gelasio-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Gelasio-Regular.ttf"; path = "../../../../furnitureshop/client/src/assets/fonts/Gelasio-Regular.ttf"; sourceTree = "<group>"; };
-		EC108E9160EC076E804CC030 /* Pods_FurnitureShop_FurnitureShopTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FurnitureShop_FurnitureShopTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
@@ -67,7 +67,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				41F82C0F139BE18E21574206 /* Pods_FurnitureShop_FurnitureShopTests.framework in Frameworks */,
+				748F8DF97D53EFA9504EA11A /* libPods-FurnitureShop-FurnitureShopTests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -75,7 +75,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				73A4A1D382F41693723F6C61 /* Pods_FurnitureShop.framework in Frameworks */,
+				CE67487B60C7A0713C29B7C2 /* libPods-FurnitureShop.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -116,8 +116,8 @@
 			isa = PBXGroup;
 			children = (
 				ED297162215061F000B7C4FE /* JavaScriptCore.framework */,
-				48C56C0B60C2271039722365 /* Pods_FurnitureShop.framework */,
-				EC108E9160EC076E804CC030 /* Pods_FurnitureShop_FurnitureShopTests.framework */,
+				01F354DE2225304512009131 /* libPods-FurnitureShop.a */,
+				2D156EA251A26F29AC148271 /* libPods-FurnitureShop-FurnitureShopTests.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -192,6 +192,7 @@
 				00E356EB1AD99517003FC87E /* Frameworks */,
 				00E356EC1AD99517003FC87E /* Resources */,
 				978611FDD48013920A6CB771 /* [CP] Embed Pods Frameworks */,
+				33E2298398A1F94E421E081B /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -214,6 +215,7 @@
 				13B07F8E1A680F5B00A75B9A /* Resources */,
 				00DD1BFF1BD5951E006B06BC /* Bundle React Native code and images */,
 				B397A3AD0FA0217E8118280D /* [CP] Embed Pods Frameworks */,
+				01C3C03164FBDE73DC9B6C68 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -301,6 +303,40 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "set -e\n\nexport NODE_BINARY=node\n../node_modules/react-native/scripts/react-native-xcode.sh\n";
+		};
+		01C3C03164FBDE73DC9B6C68 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-FurnitureShop/Pods-FurnitureShop-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-FurnitureShop/Pods-FurnitureShop-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-FurnitureShop/Pods-FurnitureShop-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		33E2298398A1F94E421E081B /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-FurnitureShop-FurnitureShopTests/Pods-FurnitureShop-FurnitureShopTests-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-FurnitureShop-FurnitureShopTests/Pods-FurnitureShop-FurnitureShopTests-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-FurnitureShop-FurnitureShopTests/Pods-FurnitureShop-FurnitureShopTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
 		};
 		978611FDD48013920A6CB771 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -440,7 +476,7 @@
 					"$(inherited)",
 				);
 				INFOPLIST_FILE = FurnitureShopTests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -464,7 +500,7 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				COPY_PHASE_STRIP = NO;
 				INFOPLIST_FILE = FurnitureShopTests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -564,7 +600,7 @@
 				COPY_PHASE_STRIP = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
-				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = "";
+				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = i386;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -580,7 +616,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					/usr/lib/swift,
 					"$(inherited)",
@@ -636,7 +672,7 @@
 				COPY_PHASE_STRIP = YES;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = "";
+				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = i386;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
@@ -645,7 +681,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					/usr/lib/swift,
 					"$(inherited)",
