@@ -10,14 +10,16 @@ import { styles } from './styles';
 interface Props {
   item: Payment;
   togglePayment: (id: string, value: boolean) => void;
+  removePaymentMethod: (id: string) => void;
 }
 
-export const PaymentMethod: React.FC<Props> = ({ item, togglePayment }) => {
+export const PaymentMethod: React.FC<Props> = ({ item, togglePayment, removePaymentMethod }) => {
   const onChange = (value: boolean) => togglePayment(item.id, value);
+  const onRemove = () => removePaymentMethod(item.id);
   return (
     <View style={styles.paymentContainer}>
       <PaymentCard isActive={item.isActive} cardNumber={item.cardNumber} holderName={item.holderName} expireDate="05/23" />
-      <CheckboxController onChange={onChange} isActive={item.isActive} title="payment method" />
+      <CheckboxController onChange={onChange} onRemoveItem={onRemove} isActive={item.isActive} title="payment method" />
     </View>
   );
 };
