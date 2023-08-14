@@ -9,25 +9,32 @@ import { AddressItem } from '../components/address_item';
 import { AppStackParamList, MainStackRoutes } from 'configs/navigation/routes';
 import { ShippingAddress } from 'models/shipping_address/shipping_address';
 import { GET_SHIPPING_ADDRESSES } from '../graphql/queries';
-import { UPDATE_SHIPPING_ADDRESS } from '../graphql/mutations';
+import { DELETE_SHIPPING_ADDRESS, UPDATE_SHIPPING_ADDRESS } from '../graphql/mutations';
 
 export const AddressScreen = () => {
   const { data, loading, refetch } = useQuery<{ profile: { shippingAddresses: Array<ShippingAddress> } }>(GET_SHIPPING_ADDRESSES, {
-    fetchPolicy: 'no-cache',
+    fetchPolicy: 'cache-and-network',
   });
-  const [updateShippingAddress] = useMutation(UPDATE_SHIPPING_ADDRESS, { refetchQueries: [GET_SHIPPING_ADDRESSES] });
-  const navigation = useNavigation<NavigationProp<AppStackParamList>>();
+  const [updateShippingAddress, updateAddressMutation] = useMutation(UPDATE_SHIPPING_ADDRESS, { refetchQueries: [GET_SHIPPING_ADDRESSES] });
+  const [deleteShippingAddress, deleteAddressMutation] = useMutation(DELETE_SHIPPING_ADDRESS, { refetchQueries: [GET_SHIPPING_ADDRESSES] });
 
+  const navigation = useNavigation<NavigationProp<AppStackParamList>>();
   const navigateToCreatAddress = () => navigation.navigate(MainStackRoutes.AddShippingAddress);
+
   const toggleShippingAddress = (id: string, isActive: boolean) => updateShippingAddress({ variables: { input: { id, isActive } } });
+  const removeShippingAddress = (id: string) => deleteShippingAddress({ variables: { id } });
+
+  const refreshing = loading || updateAddressMutation.loading || deleteAddressMutation.loading;
 
   return (
     <ScreenWrapper>
       <FlatList
-        refreshing={loading}
+        refreshing={refreshing}
         onRefresh={refetch}
         data={data?.profile.shippingAddresses}
-        renderItem={({ item }) => <AddressItem toggleAddress={toggleShippingAddress} isCheckboxVisible item={item} />}
+        renderItem={({ item }) => (
+          <AddressItem removeShippingAddress={removeShippingAddress} toggleAddress={toggleShippingAddress} isCheckboxVisible item={item} />
+        )}
       />
       <FloatingButton onPress={navigateToCreatAddress} />
     </ScreenWrapper>
