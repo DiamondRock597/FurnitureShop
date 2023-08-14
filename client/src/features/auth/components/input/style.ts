@@ -1,7 +1,11 @@
-import { Fonts } from 'constants/fonts';
-import { StyleSheet } from 'react-native';
+import { Fonts } from 'common/constants/fonts';
+import { Dimensions, StyleSheet } from 'react-native';
 
-import { Colors } from '@constants/colors';
+import { Colors } from 'common/constants/colors';
+
+const { height } = Dimensions.get('window');
+
+const HEIGHT_RATIO = 0.06;
 
 export const styles = StyleSheet.create({
   name: {
@@ -10,25 +14,27 @@ export const styles = StyleSheet.create({
     fontFamily: Fonts.NunitoRegular,
     color: Colors.SecondaryGrey,
   },
-  container: {
-    width: '100%',
-  },
   input: {
+    flex: 1,
+    height: '85%',
+    width: '100%',
     paddingVertical: 10,
     fontSize: 14,
-    lineHeight: 19,
+    lineHeight: 15,
     fontFamily: Fonts.NunitoRegular,
     borderBottomWidth: 1.5,
     borderBottomColor: '#E0E0E0',
   },
   error: {
-    paddingTop: 4,
     fontSize: 12,
-    textAlign: 'center',
+    textAlign: 'right',
     fontFamily: Fonts.NunitoLight,
     color: 'red',
   },
   inputContainer: {
-    paddingBottom: 2,
+    width: '100%',
+    flexDirection: 'row',
+    alignItems: 'center',
+    height: height * HEIGHT_RATIO,
   },
 });

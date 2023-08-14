@@ -34,7 +34,7 @@ export const userSchema = buildSchema(`#graphql
         accessToken: String
     }
 
-    input AuthInput {
+    input LoginInput {
         email: String!
         password: String!
     }
@@ -51,6 +51,6 @@ export const userSchema = buildSchema(`#graphql
 
     type Mutation {
         createUser(input: RegisterInput): AuthResponse
-        login(input: AuthInput): AuthResponse
+        login(input: LoginInput): AuthResponse
     }
 `);

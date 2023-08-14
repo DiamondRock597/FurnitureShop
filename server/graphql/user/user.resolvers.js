@@ -4,7 +4,7 @@ import { userService } from "../../services/user.service.js";
 
 export const userResolvers = {
     Query: {
-        profile: async (root, args, { isAuth, userId }) => {
+        profile: (root, args, { isAuth, userId }) => {
             try {
                 if (!isAuth) {
                     throw new GraphQLError('User is not authinticated');
@@ -12,24 +12,23 @@ export const userResolvers = {
 
                 return userService.getUser(userId);
             } catch (error) {
-                console.log({error});
                 return error;
             }
         }
     },
     Mutation: {
-        createUser: async (root, { input }) => {
+        createUser: (root, { input }) => {
             try {
                 const { email, password, name } = input;
-                return await userService.register(email, password, name);
+                return userService.register(email, password, name);
             } catch (error) {
                 return error;
             }
         },
-        login: async (root, { input }) => {
+        login: (root, { input }) => {
             try {
                 const { email, password } = input;
-                return await userService.login(email, password);
+                return userService.login(email, password);
             } catch (error) {
                 return error;
             }

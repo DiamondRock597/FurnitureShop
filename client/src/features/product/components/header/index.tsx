@@ -2,14 +2,14 @@ import React from 'react';
 import { NavigationProp, useNavigation } from '@react-navigation/native';
 import { View, Image, Text, TouchableOpacity } from 'react-native';
 
-import { AppStackParamList, Routes } from 'navigation/routes';
+import { AppStackParamList, MainStackRoutes } from 'configs/navigation/routes';
 
 import { style } from './style';
 
 export const Header = React.memo(() => {
   const navigation = useNavigation<NavigationProp<AppStackParamList>>();
 
-  const navigateToCart = () => navigation.navigate(Routes.Cart);
+  const navigateToCart = () => navigation.navigate(MainStackRoutes.Cart);
 
   return (
     <View style={style.container}>

@@ -16,11 +16,10 @@ export const paymentResolver = {
         },
         updatePaymentMethod: async (root, { input, id }, { isAuth }) => {
             try {
-                console.log({id, input});
                 if (!isAuth) {
                     throw new GraphQLError('User is not authinticated');
                 }
-                
+
                 return paymentService.updatePaymentMethod(id, input);
             } catch (error) {
                 return error;

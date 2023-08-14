@@ -10,7 +10,7 @@ export const basketSchema = buildSchema(`#graphql
     }
 
     type Query {
-        getBasket: [BasketItem]
+        basket: [BasketItem]
     }
 
     type Mutation {

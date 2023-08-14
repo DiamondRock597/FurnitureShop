@@ -4,14 +4,13 @@ import { basketService } from "../../services/basket.service.js";
 
 export const basketResolvers = {
     Query: {
-        getBasket: async (root, args, { isAuth, userId }) => {
+        basket: async (root, args, { isAuth, userId }) => {
             try {
                 if (!isAuth) {
                     throw new GraphQLError('User is not authinticated');
                 }
 
                 const basket = await basketService.getBasketList(userId);
-                console.log({ basket });
                 return basket;
             } catch (error) {
                 return error;

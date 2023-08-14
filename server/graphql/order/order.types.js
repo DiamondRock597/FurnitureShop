@@ -10,7 +10,7 @@ export const orderSchema = buildSchema(`#graphql
     }
 
     type Query {
-        getList: [Order]
+        orders: [Order]
     }
 
     type Mutation {

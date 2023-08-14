@@ -1,7 +1,7 @@
 import { StyleSheet, Dimensions } from 'react-native';
 
-import { Fonts } from 'constants/fonts';
-import { Colors } from 'constants/colors';
+import { Fonts } from 'common/constants/fonts';
+import { Colors } from 'common/constants/colors';
 
 const { width, height } = Dimensions.get('screen');
 const PLUS_ICON_SIZE = 15;
