@@ -5,15 +5,14 @@ import { Fonts } from 'common/constants/fonts';
 
 export const styles = StyleSheet.create({
   container: {
-    // flex: 1,
     width: '100%',
     borderRadius: 4,
     borderColor: '#DBDBDB',
     borderWidth: 1,
-    paddingVertical: 3,
+    paddingVertical: 15,
     paddingHorizontal: 16,
     backgroundColor: Colors.Primary,
-    marginVertical: 4,
+    marginVertical: 8,
   },
   title: {
     fontFamily: Fonts.NunitoRegular,

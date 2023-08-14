@@ -5,7 +5,7 @@ import { Fonts } from 'common/constants/fonts';
 
 const { height } = Dimensions.get('window');
 
-const heightRatio = 0.08;
+const heightRatio = 0.07;
 
 export const styles = StyleSheet.create({
   container: {

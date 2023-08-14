@@ -39,6 +39,7 @@ export const useSignIn: () => UseSignInReturn = () => {
   useEffect(() => {
     const userData = data?.login;
     const errorMessage = error?.message;
+    console.log({ userData });
 
     if (errorMessage) {
       Alert.alert('Error', errorMessage);
@@ -46,8 +47,8 @@ export const useSignIn: () => UseSignInReturn = () => {
     }
 
     if (userData) {
-      tokenRepository.saveToken(userData.accessToken);
       navigate(MainStackRoutes.TabNavigator);
+      tokenRepository.saveToken(userData.accessToken);
     }
   }, [data, error, navigate]);
 
@@ -60,6 +61,6 @@ export const useSignIn: () => UseSignInReturn = () => {
       onSubmit,
       control,
     }),
-    [onSubmit, control]
+    [onSubmit, control],
   );
 };

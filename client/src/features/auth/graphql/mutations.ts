@@ -12,7 +12,7 @@ export const REGISTER = gql`
 `;
 
 export const LOGIN = gql`
-  mutation Login($input: AuthInput) {
+  mutation Login($input: LoginInput) {
     login(input: $input) {
       accessToken
     }

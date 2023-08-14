@@ -1,6 +1,5 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import { useReactiveVar } from '@apollo/client';
 
 import { Onboarding } from 'features/auth/screens/onboarding';
 import { AuthScreen } from 'features/auth/screens/Auth.screen';
@@ -8,7 +7,7 @@ import { AddressScreen } from 'features/profile/screens/AddressList.screen';
 import { CreateAddressScreen } from 'features/profile/screens/creating_address';
 import { PaymentMethodScreen } from 'features/profile/screens/PaymentMethodList.screen';
 import { TabNavigator } from './MainNavigator';
-import { AppStackParamList, MainStackRoutes, MainTabRoutes } from './routes';
+import { AppStackParamList, MainStackRoutes } from './routes';
 import { Header } from 'common/components//header';
 import { CreatePaymentScreen } from 'features/profile/screens/creating_payment';
 import { ProductScreen } from 'features/product/screens/product';
@@ -16,7 +15,8 @@ import { CartScreen } from 'features/order/screens/cart';
 import { routeNames } from 'common/constants/route_names';
 import { CheckoutScreen } from 'features/order/screens/checkout';
 import { SuccessfulOrderScreen } from 'features/order/screens/successful_order';
-import { authTokenVar } from 'configs/graphql/client';
+import { tokenRepository } from 'configs/repositories/TokenRepository';
+import { FullPageLoader } from 'common/components/full_page_loader';
 
 const Stack = createNativeStackNavigator<AppStackParamList>();
 
@@ -29,10 +29,26 @@ const routesWithHeader = [
   MainStackRoutes.Checkout,
 ];
 
-// const isMainRoute = (route: string): route is MainStackRoutes => Object.values(MainStackRoutes).includes(route as MainStackRoutes);
-
 export const AppNavigator = () => {
-  const token = useReactiveVar(authTokenVar);
+  const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    const getAccesToken = async () => {
+      try {
+        await tokenRepository.loadToken();
+      } catch (error) {
+        console.log({ error });
+      } finally {
+        setIsLoading(false);
+      }
+    };
+
+    getAccesToken();
+  }, []);
+
+  if (isLoading) {
+    return <FullPageLoader />;
+  }
 
   return (
     <Stack.Navigator
@@ -42,7 +58,7 @@ export const AppNavigator = () => {
           return isRouteInList ? <Header name={routeNames[route.name]} isBasketVisible={isRouteInList} isBackButtonVisible={isRouteInList} /> : null;
         },
       }}
-      initialRouteName={token ? MainStackRoutes.TabNavigator : MainStackRoutes.Onboarding}
+      initialRouteName={tokenRepository.accessToken ? MainStackRoutes.TabNavigator : MainStackRoutes.Onboarding}
     >
       <Stack.Screen component={Onboarding} name={MainStackRoutes.Onboarding} />
       <Stack.Screen component={AuthScreen} name={MainStackRoutes.Auth} />

@@ -8,5 +8,6 @@ export const styles = StyleSheet.create({
   contentContainer: {
     justifyContent: 'space-between',
     flexGrow: 1,
+    maxHeight: '75%',
   },
 });

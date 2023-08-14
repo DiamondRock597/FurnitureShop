@@ -30,7 +30,14 @@ export const SignIn: React.FC<Props> = ({ goToSignUp }) => {
           name={FormValues.Email}
           rules={{ required: 'Email is required' }}
           render={({ field, fieldState: { error } }: ControllerProps<FormValues.Email>) => (
-            <AuthInput value={field.value} onChangeText={field.onChange} name="Email" keyboardType="email-address" error={error?.message} />
+            <AuthInput
+              value={field.value}
+              onChangeText={field.onChange}
+              name="Email"
+              keyboardType="email-address"
+              error={error?.message}
+              autoCapitalize="none"
+            />
           )}
         />
         <Controller
@@ -42,7 +49,14 @@ export const SignIn: React.FC<Props> = ({ goToSignUp }) => {
             maxLength: { value: 16, message: 'Password should have less than 16 sybmols' },
           }}
           render={({ field, fieldState: { error } }: ControllerProps<FormValues.Password>) => (
-            <AuthInput value={field.value} onChangeText={field.onChange} secureTextEntry name="Password" error={error?.message} />
+            <AuthInput
+              value={field.value}
+              autoCapitalize="none"
+              onChangeText={field.onChange}
+              secureTextEntry
+              name="Password"
+              error={error?.message}
+            />
           )}
         />
         <View style={style.button}>
