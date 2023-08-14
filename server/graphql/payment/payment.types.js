@@ -11,5 +11,6 @@ export const paymentSchema = buildSchema(`#graphql
     type Mutation {
         updatePaymentMethod(id: ID, input: PaymentInput): ID
         createPaymentMethod(input: PaymentInput): ID
+        deletePaymentMethod(id: ID): ID
     }
 `);

@@ -24,6 +24,17 @@ export const paymentResolver = {
             } catch (error) {
                 return error;
             }
+        },
+        deletePaymentMethod: async (root, { id }, { isAuth, userId }) => {
+            try {
+                if (!isAuth) {
+                    throw new GraphQLError('User is not authinticated');
+                }
+
+                return paymentService.deletePaymentMethod(userId, id);
+            } catch (error) {
+                return error;
+            }
         }
     }
 }

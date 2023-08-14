@@ -10,14 +10,18 @@ interface Props {
   item: ShippingAddress;
   isCheckboxVisible?: boolean;
   toggleAddress: (id: string, isActive: boolean) => void;
+  removeShippingAddress: (id: string) => void;
 }
 
-export const AddressItem: React.FC<Props> = ({ item, isCheckboxVisible, toggleAddress }) => {
+export const AddressItem: React.FC<Props> = ({ item, isCheckboxVisible, toggleAddress, removeShippingAddress }) => {
   const onChange = (value: boolean) => toggleAddress(item.id, value);
+  const onRemove = () => removeShippingAddress(item.id);
 
   return (
     <View style={styles.container}>
-      {isCheckboxVisible ? <CheckboxController onChange={onChange} isActive={item.isActive} title="shipping address" /> : null}
+      {isCheckboxVisible ? (
+        <CheckboxController onRemoveItem={onRemove} onChange={onChange} isActive={item.isActive} title="shipping address" />
+      ) : null}
       <View style={styles.addressCard}>
         <View style={styles.header}>
           <Text style={styles.name}>{item.name}</Text>
