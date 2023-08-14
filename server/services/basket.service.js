@@ -10,6 +10,10 @@ class BasketService {
         }
         const basket = await BasketModel.findOne({ userId });
 
+        if (!basket) {
+            return [];
+        }
+
         return basketItemService.getList(basket._id);
     }
 

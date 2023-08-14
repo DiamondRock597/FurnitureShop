@@ -14,7 +14,7 @@ export const basketSchema = buildSchema(`#graphql
     }
 
     type Mutation {
-        addToBasket(furnitureId: ID!, quantity: Int): BasketItem
+        addToBasket(furnitureId: ID!, quantity: Int): ID
         incrementBasketItem(basketItemId: ID): ID
         decrementBasketItem(basketItemId: ID): ID
         deleteBasketItem(basketItemId: ID): ID

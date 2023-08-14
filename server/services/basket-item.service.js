@@ -3,8 +3,9 @@ import { BasketItemModel } from '../models/basket-item.model.js'
 
 class BasketItemService {
     createItem = async (basketId, furnitureId, quantity = 1) => {
+        console.log({basketId, furnitureId, quantity});
         const basketItem = await BasketItemModel.findOneAndUpdate(
-            { basketId, furnitureId },
+            { basketId, furniture: furnitureId },
             { $inc: { quantity } },
             { new: true, upsert: true }
         );
