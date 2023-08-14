@@ -15,5 +15,6 @@ export const shippingAddressSchema = buildSchema(`#graphql
     type Mutation {
         createShippingAddress(input: ShippingAddressInput): ID
         updateShippingAddress(input: ShippingAddressInput): ID
+        deleteShippingAddress(id: ID): ID
     }
 `);

@@ -3,7 +3,7 @@ import { Alert } from 'react-native';
 import { Control, useForm, UseFormReturn } from 'react-hook-form';
 import { useMutation } from '@apollo/client';
 import { NavigationProp, useNavigation } from '@react-navigation/native';
-import { MainStackParamList, Routes } from 'configs/navigation/routes';
+import { MainStackRoutes, AppStackParamList } from 'configs/navigation/routes';
 
 import { REGISTER } from '../../graphql/mutations';
 import { tokenRepository } from 'configs/repositories/TokenRepository';
@@ -30,7 +30,7 @@ export interface UseSignUpReturn {
 
 export const useSignUp: () => UseSignUpReturn = () => {
   const [onRegister, registerData] = useMutation<{ createUser: AuthResponse }, { input: RegisterPayload }>(REGISTER);
-  const { navigate }: NavigationProp<MainStackParamList> = useNavigation();
+  const { navigate }: NavigationProp<AppStackParamList> = useNavigation();
 
   const { control, handleSubmit, setError }: UseFormReturn<FormTypes> = useForm<FormTypes>({
     defaultValues: {
@@ -52,7 +52,7 @@ export const useSignUp: () => UseSignUpReturn = () => {
 
     if (userData) {
       tokenRepository.saveToken(userData.accessToken);
-      navigate(Routes.TabNavigator);
+      navigate(MainStackRoutes.TabNavigator);
     }
   }, [registerData, navigate]);
 

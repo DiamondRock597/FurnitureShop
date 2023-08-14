@@ -26,7 +26,20 @@ export interface UseSignInReturn {
 }
 
 export const useSignIn: () => UseSignInReturn = () => {
-  const [login, { data, error }] = useMutation<{ login: AuthResponse }, { input: LoginPayload }>(LOGIN);
+  const [login] = useMutation<{ login: AuthResponse }, { input: LoginPayload }>(LOGIN, {
+    onCompleted: (data) => {
+      if (data) {
+        navigate(MainStackRoutes.TabNavigator);
+        tokenRepository.saveToken(data.login.accessToken);
+      }
+    },
+    onError: (error) => {
+      if (error?.message) {
+        Alert.alert('Error', error.message);
+        return;
+      }
+    },
+  });
   const { navigate }: NavigationProp<MainTabParamList> = useNavigation();
 
   const { control, handleSubmit }: UseFormReturn<FormTypes> = useForm<FormTypes>({
@@ -35,22 +48,6 @@ export const useSignIn: () => UseSignInReturn = () => {
       password: '',
     },
   });
-
-  useEffect(() => {
-    const userData = data?.login;
-    const errorMessage = error?.message;
-    console.log({ userData });
-
-    if (errorMessage) {
-      Alert.alert('Error', errorMessage);
-      return;
-    }
-
-    if (userData) {
-      navigate(MainStackRoutes.TabNavigator);
-      tokenRepository.saveToken(userData.accessToken);
-    }
-  }, [data, error, navigate]);
 
   const onLogin = useCallback((input: LoginPayload) => login({ variables: { input } }), [login]);
 
@@ -61,6 +58,6 @@ export const useSignIn: () => UseSignInReturn = () => {
       onSubmit,
       control,
     }),
-    [onSubmit, control],
+    [onSubmit, control]
   );
 };
