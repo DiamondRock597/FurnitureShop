@@ -10,11 +10,14 @@ class BasketService {
         }
         const basket = await BasketModel.findOne({ userId });
 
-        if (!basket) {
-            return [];
-        }
+        const items = await basketItemService.getList(basket?._id);
+        const total = await this.getTotal(items);
 
-        return basketItemService.getList(basket._id);
+        return { items, total }
+    }
+
+    getTotal = async (list) => {
+        return list.reduce((prev, curr) => prev + curr.quantity * curr.productCost, 0);
     }
 
     addToBasket = async (userId, furnitureId, quantity) => {

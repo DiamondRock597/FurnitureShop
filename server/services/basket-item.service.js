@@ -31,6 +31,10 @@ class BasketItemService {
     }
 
     getList = async (basketId) => {
+        if (!basketId) {
+            return [];
+        }
+
         const list = await BasketItemModel.find({ basketId }).populate('furniture').exec();
         return list.map(BasketItemDto.parse);
     };
@@ -39,6 +43,7 @@ class BasketItemService {
         await BasketItemModel.findByIdAndDelete(id);
         return id;
     };
+
 }
 
 export const basketItemService = new BasketItemService();

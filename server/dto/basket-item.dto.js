@@ -4,6 +4,7 @@ export class BasketItemDto {
     productCost;
     quantity;
     productDescription;
+    productImage;
 
     static parse = (model) => new BasketItemDto(model);
 
@@ -13,5 +14,6 @@ export class BasketItemDto {
         this.productCost = model.furniture.cost;
         this.productDescription = model.furniture.description;
         this.quantity = model.quantity;
+        this.productImage = model.furniture.image;
     }
 }
