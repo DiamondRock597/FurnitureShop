@@ -15,15 +15,18 @@ export const basketSchema = buildSchema(`#graphql
         total: Int
     }
 
+    input UpdateBasketItemInput {
+        id:ID!
+        quantity: Int!
+    }
+
     type Query {
         basket: Basket
     }
 
     type Mutation {
         addToBasket(furnitureId: ID!, quantity: Int): ID
-        updateBasketItem(basket: BasketItem): ID
-        incrementBasketItem(basketItemId: ID): ID
-        decrementBasketItem(basketItemId: ID): ID
+        updateBasketItem(basketItem: UpdateBasketItemInput): ID
         deleteBasketItem(basketItemId: ID): ID
     }
 `);

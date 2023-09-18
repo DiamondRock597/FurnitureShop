@@ -6,14 +6,8 @@ export const DELETE_CART_ITEM = gql`
   }
 `;
 
-export const INCREMENT_BASKET_ITEM = gql`
-  mutation IncrementBasketItem($id: ID) {
-    incrementBasketItem(basketItemId: $id)
-  }
-`;
-
-export const DECREMENT_BASKET_ITEM = gql`
-  mutation DecrementBasketItem($id: ID) {
-    incincrementBasketItem(basketItemId: $id)
+export const UPDATE_BASKET_ITEM = gql`
+  mutation UpdateBasketItem($basketItem: UpdateBasketItemInput) {
+    updateBasketItem(basketItem: $basketItem)
   }
 `;

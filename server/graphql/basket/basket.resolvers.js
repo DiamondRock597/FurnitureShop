@@ -29,28 +29,6 @@ export const basketResolvers = {
                 return error;
             }
         },
-        incrementBasketItem: async (root, { basketItemId }, { isAuth }) => {
-            try {
-                if (!isAuth) {
-                    throw new GraphQLError('User is not authinticated');
-                }
-
-                return basketService.incrementItem(basketItemId);
-            } catch (error) {
-                return error;
-            }
-        },
-        decrementBasketItem: async (root, { basketItemId }, { isAuth }) => {
-            try {
-                if (!isAuth) {
-                    throw new GraphQLError('User is not authinticated');
-                }
-
-                return basketService.decrementItem(basketItemId);
-            } catch (error) {
-                return error;
-            }
-        },
         deleteBasketItem: async (root, { basketItemId }, { isAuth }) => {
             try {
                 if (!isAuth) {
@@ -61,6 +39,17 @@ export const basketResolvers = {
             } catch (error) {
                 return error;
             }
-        }
+        },
+        updateBasketItem: async (root, { basketItem }, { isAuth }) => {
+            try {
+                if (!isAuth) {
+                    throw new GraphQLError('User is not authinticated');
+                }
+
+                return basketService.updateBasketItem(basketItem);
+            } catch (error) {
+                return error;
+            }
+        },
     }
 }

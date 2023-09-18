@@ -29,8 +29,18 @@ export interface UseSignUpReturn {
 }
 
 export const useSignUp: () => UseSignUpReturn = () => {
-  const [onRegister, registerData] = useMutation<{ createUser: AuthResponse }, { input: RegisterPayload }>(REGISTER);
   const { navigate }: NavigationProp<AppStackParamList> = useNavigation();
+
+  const [onRegister] = useMutation<{ createUser: AuthResponse }, { input: RegisterPayload }>(REGISTER, {
+    onCompleted: (data) => {
+      tokenRepository.saveToken(data.createUser.accessToken);
+      navigate(MainStackRoutes.TabNavigator);
+    },
+    onError: (error) => {
+      Alert.alert('Ups!', error.message);
+      return;
+    },
+  });
 
   const { control, handleSubmit, setError }: UseFormReturn<FormTypes> = useForm<FormTypes>({
     defaultValues: {
@@ -40,21 +50,6 @@ export const useSignUp: () => UseSignUpReturn = () => {
       confirmation: '',
     },
   });
-
-  useEffect(() => {
-    const userData = registerData.data?.createUser;
-    const errorMessage = registerData.error?.message;
-
-    if (errorMessage) {
-      Alert.alert('Ups!', errorMessage);
-      return;
-    }
-
-    if (userData) {
-      tokenRepository.saveToken(userData.accessToken);
-      navigate(MainStackRoutes.TabNavigator);
-    }
-  }, [registerData, navigate]);
 
   const handleRegister = useCallback(
     (data: FormTypes) => {

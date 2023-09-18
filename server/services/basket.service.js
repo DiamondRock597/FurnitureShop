@@ -31,9 +31,7 @@ class BasketService {
         return basket._id;
     }
 
-    incrementItem = (basketItemId) => basketItemService.incrementQuantity(basketItemId);
-
-    decrementItem = (basketItemId) => basketItemService.decrementQuantity(basketItemId);
+    updateBasketItem = async (basketItem) => basketItemService.updateBasketItem(basketItem)
 
     deleteItem = (basketItemId) => basketItemService.deleteItem(basketItemId);
 }

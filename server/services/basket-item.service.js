@@ -3,7 +3,6 @@ import { BasketItemModel } from '../models/basket-item.model.js'
 
 class BasketItemService {
     createItem = async (basketId, furnitureId, quantity = 1) => {
-        console.log({basketId, furnitureId, quantity});
         const basketItem = await BasketItemModel.findOneAndUpdate(
             { basketId, furniture: furnitureId },
             { $inc: { quantity } },
@@ -13,21 +12,13 @@ class BasketItemService {
         return BasketItemDto.parse(basketItem);
     };
 
-    incrementQuantity = async (id) => {
-        await BasketItemModel.findByIdAndUpdate(id, { $inc: { quantity: 1 } });
-        return id;
-    }
-
-    decrementQuantity = async (id) => {
-        const basketItem = await BasketItemModel.findById(id);
-        basketItem.quantity -= 1;
-
+    updateBasketItem = async (basketItem) => {
         if (basketItem.quantity <= 0) {
-            return this.deleteItem(basketItem._id);
+            return this.deleteItem(basketItem.id);
         }
 
-        await basketItem.save();
-        return id;
+        await BasketItemModel.findByIdAndUpdate(basketItem.id, { quantity: basketItem.quantity });
+        return basketItem.id;
     }
 
     getList = async (basketId) => {

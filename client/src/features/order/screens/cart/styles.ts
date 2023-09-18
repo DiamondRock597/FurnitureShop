@@ -21,4 +21,14 @@ export const styles = StyleSheet.create({
     lineHeight: 27,
     color: Colors.SecondaryBlack,
   },
+  emptyContainer: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  emptyTitle: {
+    fontSize: 18,
+    textAlign: 'center',
+    fontFamily: Fonts.NunitoRegular,
+  },
 });
