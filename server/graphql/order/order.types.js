@@ -7,10 +7,12 @@ export const orderSchema = buildSchema(`#graphql
         createdAt: String!
         quantity: Int!
         totalAmount: Int!
+        delieveryTax: Int!
     }
 
     type Query {
         orders: [Order]
+        activeOrder: Order
     }
 
     type Mutation {

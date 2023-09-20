@@ -8,16 +8,21 @@ class BasketService {
         if (!userId) {
             throw new GraphQLError('Does not exist');
         }
-        const basket = await BasketModel.findOne({ userId });
+        const basket = await BasketModel.findOne({ userId, status: 'Pending' });
 
         const items = await basketItemService.getList(basket?._id);
-        const total = await this.getTotal(items);
+        const total = this.getTotal(items);
+        const totalAmount = this.getTotalAmount(items);
 
-        return { items, total }
+        return { items, total, totalAmount }
     }
 
-    getTotal = async (list) => {
+    getTotal = (list) => {
         return list.reduce((prev, curr) => prev + curr.quantity * curr.productCost, 0);
+    }
+
+    getTotalAmount = (list) => {
+        return list.reduce((prev, current) => prev + current.quantity, 0);
     }
 
     addToBasket = async (userId, furnitureId, quantity) => {
@@ -25,15 +30,17 @@ class BasketService {
             throw new GraphQLError('Does not exist');
         }
 
-        const basket = await BasketModel.findOneAndUpdate({ userId, status: 'Free' }, { userId }, { new: true, upsert: true, });
+        const basket = await BasketModel.findOneAndUpdate({ userId, status: 'Pending' }, { userId }, { new: true, upsert: true, });
         await basketItemService.createItem(basket._id, furnitureId, quantity);
 
         return basket._id;
     }
 
-    updateBasketItem = async (basketItem) => basketItemService.updateBasketItem(basketItem)
+    updateBasketItem = (basketItem) => basketItemService.updateBasketItem(basketItem)
 
     deleteItem = (basketItemId) => basketItemService.deleteItem(basketItemId);
+
+    submitBasket = (userId) => BasketModel.findOneAndUpdate({ userId, status: 'Pending' }, { status: 'Submitted' });
 }
 
 export const basketService = new BasketService();

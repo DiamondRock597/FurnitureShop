@@ -13,6 +13,7 @@ export const basketSchema = buildSchema(`#graphql
     type Basket {
         items: [BasketItem]
         total: Int
+        totalAmount: Int
     }
 
     input UpdateBasketItemInput {

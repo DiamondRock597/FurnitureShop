@@ -1,30 +1,40 @@
 import { basketService } from './basket.service.js';
 import { OrderModel } from '../models/order.model.js';
 import { OrderDto } from '../dto/order.dto.js';
+import { GraphQLError } from 'graphql';
 
 class OrderService {
     static delieveryTax = 0.05;
 
-    createOrder = async (userId, shippingAddressId, paymentId) => {
-        const basketList = await basketService.getBasketList(userId);
-        const totalAmount = basketList.reduce((prev, current) => prev + (current.quantity * current.productCost), 0) * OrderService.delieveryTax;
-        const quantity = basketList.reduce((prev, current) => prev + current.quantity, 0);
+    createOrder = async (userId, shippingAddress, payment) => {
+        const { total, totalQuantity } = await basketService.getBasketList(userId);
 
         const order = await OrderModel.create({
-            totalAmount,
-            quantity,
+            totalAmount: total * OrderService.delieveryTax,
+            quantity: totalQuantity,
             userId,
-            shippingAddressId,
-            paymentId
+            shippingAddress,
+            payment,
+            delieveryTax: OrderService.delieveryTax
         });
+
+        await basketService.submitBasket(userId);
 
         return OrderDto.parse(order);
     }
 
-    getList = async (userId) => {
-        const orderList = await OrderModel.find({ userId });
+    submitOrder = async () => {
 
-        return orderList.map(OrderDto.parse);
+    }
+
+    getActiveOrder = async (userId) => {
+        const activeOrder = await OrderModel.findOne({ userId, status: 'Pending' }).populate(['paymentId', 'shippingAddressId']).exec();
+
+        if (!activeOrder) {
+            throw new GraphQLError('You don not have active order to submit');
+        }
+
+        return OrderDto.parse(activeOrder);
     }
 }
 

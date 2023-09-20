@@ -21,7 +21,7 @@ export const CartScreen = () => {
 
   const navigateToCheckout = () => navigation.navigate(MainStackRoutes.Checkout);
 
-  const ListHeaderComponent = () => (
+  const ListEmptyComponent = () => (
     <View style={styles.emptyContainer}>
       <Text style={styles.emptyTitle}>List is empty, please add furnitures to basket!</Text>
     </View>
@@ -33,7 +33,7 @@ export const CartScreen = () => {
         onRefresh={refetch}
         keyExtractor={(item) => `CartItem-${item.id}`}
         refreshing={loading}
-        ListHeaderComponent={ListHeaderComponent}
+        ListEmptyComponent={ListEmptyComponent}
         data={data?.basket.items}
         renderItem={({ item }) => <CartItem item={item} />}
       />
